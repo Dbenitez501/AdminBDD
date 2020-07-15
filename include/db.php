@@ -22,7 +22,7 @@ class DB
     }
 
     /**
-     * Conexión a la base de datos
+     * Conexión a la base de datosss
      * 
      * Esta función crea la cadena de conexión para la base de datos,
      * utilizando el método PDO que nos ayuda a debuguear errores más fácil.
