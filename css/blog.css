@@ -1,0 +1,146 @@
+/* Abiam Alberto Escobedo Ruiz 1804387 */
+#blog h3,h4{
+  text-align: center;
+}
+
+#blog .contenedor{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/*Son los px que estan separando las imagenes*/
+#blog article{
+  margin: 12px;
+}
+
+#blog img{
+  width: 300px;
+  height: 200px;
+  max-width: 280%;
+}
+
+/* Blog de acuaticos */
+
+#blog2 h2,h4{
+  text-align: left;
+}
+
+#blog2 h3{
+  text-align: center;
+}
+
+#blog2 .contenedor{
+  display:run-in;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#blog2 article{
+  margin: 15px;
+}
+
+#blog2 img{
+  width: 300px;
+  height: 200px;
+  max-width: 280%;
+}
+
+#blog img.v1{
+    border: 3px solid #000000;
+    float: left;
+    margin: 10px;
+    -webkit-transition: margin 0.5s ease-out;
+    -moz-transition: margin 0.5s ease-out;
+    -o-transition: margin 0.5s ease-out;
+}
+
+#blog img.v1:hover{
+    margin-top: 2px;
+}
+
+#blog2 img.v2{
+  border-radius: 10%;
+  border: 3px solid #1957BC;
+}
+
+#blog2 img.v2:hover{
+  border-radius: 10%;
+  border: 3px solid #1957BC;
+  transform:scale(1.10);
+  transition: 0.6s linear;
+  overflow: hidden;
+}
+
+#blog2 img.v3{
+  border-radius: 10%;
+  border: 3px solid #7E5D1A;
+}
+
+#blog2 img.v3:hover{
+  border-radius: 10%;
+  border: 3px solid #7E5D1A;
+  transform:scale(1.10);
+  transition: 0.6s linear;
+  overflow: hidden;
+}
+
+#blog2 img.v4{
+  border-radius: 10%;
+  border: 3px solid #298E06;
+}
+
+#blog2 img.v4:hover{
+  border-radius: 10%;
+  border: 3px solid #298E06;
+  transform:scale(1.10);
+  transition: 0.6s linear;
+  overflow: hidden;
+}
+
+#blog img.v5{
+  border: 3px solid #000000;
+  margin: 20px;
+}
+
+#blog img.v5:hover{
+  border-radius: 10%;
+  border: 3px solid #000000;
+  transform:scale(2.0);
+  transition: 0.6s linear;
+  overflow: hidden;
+}
+
+#blog hr{
+  border: 1.5px solid black;
+}
+
+#blog2 hr{
+  border: 1.5px solid black;
+}
+
+#blog2 table.tabla_acuaticos{
+  width: 80%;
+}
+
+#blog2 table,th,td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#blog2 th,td{
+  padding: 10px;
+}
+#blog2 th{
+  background: #1E4480;
+  color: #FFFFFF;
+}
+
+#redes{
+  background: #1C5630;
+  position:sticky;
+}
+#redes img {
+    height: auto;
+    max-width: 50%;
+    vertical-align:middle;
+}
