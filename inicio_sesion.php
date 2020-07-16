@@ -24,7 +24,7 @@
       <input type="checkbox" id="menu-bar">
       <label class="icon-menu" for="menu-bar"></label>
       <nav class="menu">
-        <a href="proyecto.html"> Inicio</a>
+        <a href="proyecto.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
       </nav>
     </div>
@@ -63,7 +63,7 @@
                      <section id="Bienvenidos">
                         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
                         <br>
-                        <p>¿No tienes una cuenta? <a class="link" href="nuevo_usu.html">Registrate </a></p>
+                        <p>¿No tienes una cuenta? <a class="link" href="nuevo_usu.php">Registrate </a></p>
                      </section>
                  </div>
                 </form>
