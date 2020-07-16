@@ -17,7 +17,7 @@
     
   </head>
   <body>
-    <! encabezado !>
+    <!--encabezado-->
     <header>
     <div class="contenedor">
         <a><h1>FIME</h1></a>
@@ -29,7 +29,7 @@
       </nav>
     </div>
     </header>
-    <! encabezado !>
+    <!--encabezado-->
 
 
     <main>
