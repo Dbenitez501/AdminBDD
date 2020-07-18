@@ -20,6 +20,7 @@
       <nav class="menu">
         <a href="inicio_sesion.php"> Inicio de sesión </a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
+        <a href="include/logout.php">Cerrar Sesión</a>
       </nav>
     </div>
     </header>
@@ -36,7 +37,7 @@
       </section>
 
       <section id="Bienvenidos">
-        <h2>Bienvenido</h2>
+        <h2>Bienvenido <?php echo $user->getNombre() . " " . $user->getTipo();?></h2>
         <h2>Estas son las conferencias disponibles</h2>
       </section>
       

@@ -16,6 +16,7 @@
 #Bienvenidos h2{
     color: white;
   }
+
 #Bienvenidos p,a{
     color: white;
     text-align: left;
@@ -67,4 +68,5 @@ input[type="password"]{
         margin-top: 10px;
         border-radius: 2%;
     }
+
 }

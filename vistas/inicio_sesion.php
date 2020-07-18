@@ -26,6 +26,7 @@
       <nav class="menu">
         <a href="proyecto.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
+        <a href="include/logout.php">Cerrar Sesión</a>
       </nav>
     </div>
     </header>
@@ -43,27 +44,33 @@
       
       <section class="contenedor">
         <div class="contenedor_2">
-            <form class="formulario">
+        
+            <form class="formulario" action="" method="POST">
+              <?php
+              //Arroja un error si el usuario y/o contraseña están incorrectos
+              //variable $errorLogin se encuentra en el archivo index.php
+                if(isset($errorLogin)) {
+                  echo "<h2>" . $errorLogin . "</h2>";
+                }
+              ?>
                 <section id="Bienvenidos">
                     <h2>Inicio de sesión</h2>
                   </section>
 
                  <div class=".contenedor_inicioseccion">
                      <div class="input-contenedor">
-                     <i class="fas fa-envelope icon"></i>
-                     <input type="text" placeholder="Correo Electronico">
+                     <i class="fas fa-user icon"></i>
+                     <input type="text" name="username" placeholder="Usuario">
                      </div>
 
                      <div class="input-contenedor">
                      <i class="fas fa-key icon"></i>
-                     <input type="password" placeholder="Contraseña">
+                     <input type="password" name="password" placeholder="Contraseña">
                      </div>
 
                      <input type="submit" value="Login" class="button">
                      <section id="Bienvenidos">
-                        <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-                        <br>
-                        <p>¿No tienes una cuenta? <a class="link" href="nuevo_usu.php">Registrate </a></p>
+                        <h4>¿No tienes una cuenta? <a class="link" href="nuevo_usu.php">Registrate </a></h4>
                      </section>
                  </div>
                 </form>

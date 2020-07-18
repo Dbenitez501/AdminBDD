@@ -18,7 +18,7 @@ class DB
         $this->db       = 'conferencias';
         $this->user     = 'root';
         $this->password = '';
-        $this->charset  = 'utf8mb4_general_ci';
+        $this->charset  = 'utf8mb4';
     }
 
     /**

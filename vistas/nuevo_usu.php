@@ -26,6 +26,7 @@
       <nav class="menu">
         <a href="proyecto.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
+        <a href="../include/logout.php">Cerrar Sesión</a>
       </nav>
     </div>
     </header>
