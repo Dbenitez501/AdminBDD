@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Inicio</title>
-    <link rel="stylesheet" href="css/fontello.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/blog.css">
-    <link rel="stylesheet" href="css/tarjetas.css">
-    <link rel="stylesheet" href="css/inicio_seccion.css">
+    <link rel="stylesheet" href="../css/fontello.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/banner.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/tarjetas.css">
+    <link rel="stylesheet" href="../css/inicio_seccion.css">
 
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
@@ -24,9 +24,8 @@
       <input type="checkbox" id="menu-bar">
       <label class="icon-menu" for="menu-bar"></label>
       <nav class="menu">
-        <a href="proyecto.php"> Inicio</a>
+        <a href="../index.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
-        <a href="../include/logout.php">Cerrar Sesión</a>
       </nav>
     </div>
     </header>
@@ -35,7 +34,7 @@
 
     <main>
       <section id="banner">
-        <img src="ima/fime.jpg">
+        <img src="../ima/fime.jpg">
         <div class="contenedor">
           <h2>Conferencias</h2>
           <p>Apuntate para alguna conferencia</p>
@@ -55,7 +54,7 @@
       <footer id="redes">
         <div class="contenedor">
           <div class="sociales">
-            <img align="right" src="ima/Logos.png">
+            <img align="right" src="../ima/Logos.png">
           </div>
         </div>
       </footer>

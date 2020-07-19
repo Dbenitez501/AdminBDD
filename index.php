@@ -1,40 +1,118 @@
 <?php
-
-include_once 'include/user_session.php';
-include_once 'include/user.php';
-
-$userSession = new UserSession();
-$user = new User();
-
-if(isset($_SESSION['user']))
-{
-    //"Hay sesión existente";
-    $user->setUser($userSession->getCurrentUser());
-    include_once 'vistas/proyecto.php';
-
-} elseif(isset($_POST['username']) && isset($_POST['password'])) {
-    //"Si no hay sesión, pero hay valores en los campos de texto del inicio de sesión";
-    //Obtenemos los valores de los campos con POST
-    $userForm = $_POST['username'];
-    $passForm = $_POST['password'];
-
-    if($user->userExists($userForm, $passForm))
-    {
-        //Si el usuario existe en la BD, entonces obtenemos sus datos";
-        $userSession->setCurrentUser($userForm);
-        $user->setUser($userForm);
-
-        include_once 'vistas/proyecto.php';
-
-    } else {
-        //Nombre de usuario y/o contraseña incorrectos";
-        $errorLogin = "Nombre de usuario y/o Contraseña incorrectos";
-        include_once 'vistas/inicio_sesion.php';
-    }
-
-} else {
-    //"Login";
-    include_once 'vistas/inicio_sesion.php';
-}
-
+include_once 'include/db.php';
+$db = new DB();
 ?>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Inicio</title>     
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/tarjetas.css">
+  </head>
+  <body>
+    <!--encabezado-->
+    <header>
+    <div class="contenedor">
+      <a><h1>FIME</h1></a>
+      <input type="checkbox" id="menu-bar">
+      <label class="icon-menu" for="menu-bar"></label>
+      <nav class="menu">
+        <?php
+        if(!isset($_SESSION['user'])) {
+          //echo "<a href='index.php'> Inicio de sesión </a>";
+          echo "<a href='controlador.php'> Inicio de sesión </a>";
+        }
+        ?>
+        <a href="https://www.fime.uanl.mx/">FIME</a>
+        <?php
+        
+          if(isset($_SESSION['user'])) {
+            echo "<a href='include/logout.php'>Cerrar Sesión</a>";
+          }
+        
+        ?>
+      </nav>
+    </div>
+    </header>
+    <!--encabezado-->
+
+
+    <main>
+      <section id="banner">
+        <img src='ima/fime.jpg'>        
+        <div class="contenedor">
+          <h2>Conferencias</h2>
+          <p>Apuntate para alguna conferencia</p>
+        </div>
+      </section>
+
+      <section id="Bienvenidos">
+        <h2>Bienvenido <?php
+
+        if(isset($_SESSION['user'])) {
+          echo $user->getNombre() . " " . $user->getTipo();
+        } else {
+          echo "";
+        }
+
+        ?></h2>
+        <h2>Estas son las conferencias disponibles</h2>
+      </section>
+      
+      <section class="contenedor">
+
+        <!--CODIGO PARA GENERAR LAS CONFERENCIAS DISPONIBLES-->
+      <?php
+        $queryVirtual = $db->connect()->prepare('SELECT * FROM virtual WHERE estado=1');
+        $queryVirtual->execute();
+        
+        if($queryVirtual->rowCount()) {
+          while ($dataV = $queryVirtual->fetch(PDO::FETCH_ASSOC)) { 
+      ?>
+        
+        <div class="contenedor_2">
+
+          <div class="tarjetas">
+
+              <img src='ima/persona.jpg'>
+            
+              <h4><?php echo $dataV["titulo"]; ?></h4>
+              <br>
+              <p><?php echo $dataV["expositor"]; ?></p>
+              <br>
+              <p><?php echo $dataV["descripcion"]; ?></p>
+              <br>
+              <p>Fecha: <?php echo $dataV["fecha_inicio"]; ?></p>
+              <br>
+              <p>Hora: <?php echo $dataV["hora_inicio"]; ?></p>
+              <a href="#">Incribir 1</a>            
+            
+          </div>
+
+      <?php
+          }
+        }  
+        ?>
+
+        </div>
+      </section>
+      <br>
+      <br>
+
+      <footer id="redes">
+        <div class="contenedor">
+          <div class="sociales">
+            <img align='right' src='ima/Logos.png'>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </body>
+</html>

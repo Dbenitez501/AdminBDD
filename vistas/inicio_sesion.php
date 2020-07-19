@@ -24,7 +24,7 @@
       <input type="checkbox" id="menu-bar">
       <label class="icon-menu" for="menu-bar"></label>
       <nav class="menu">
-        <a href="vistas/proyecto.php"> Inicio</a>
+        <a href="index.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
       </nav>
     </div>
@@ -69,7 +69,7 @@
 
                      <input type="submit" value="Login" class="button">
                      <section id="Bienvenidos">
-                        <h4>¿No tienes una cuenta? <a class="link" href="nuevo_usu.php">Registrate </a></h4>
+                        <h4>¿No tienes una cuenta? <a class="link" href="vistas/nuevo_usu.php">Registrate </a></h4>
                      </section>
                  </div>
                 </form>
