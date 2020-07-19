@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/tarjetas.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/inicio_seccion.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/registro_sesion.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/registro.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
 
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
@@ -47,40 +48,41 @@
       <section class="contenedor">
         <div class="contenedor_2">
         
-        <form class="formulario" action="" method="POST">
-              <?php
-              //Arroja un error si el usuario y/o contraseña están incorrectos
-              //variable $errorLogin se encuentra en el archivo index.php
-                if(isset($errorLogin)) {
-                  echo "<h2>" . $errorLogin . "</h2>";
-                }
-              ?>
-                    <section id="Registro_sesion">
-                    <h2>Registro</h2>
-                    <br>
-                    <h3>Favor de seleccionar el tipo de registro</h3>
-                    <br>
+        <form action="#" target="" method="get" name="formDatosPersonales">
+
+                <section id="Inicio_sesion">
+                    <h2>Docente</h2>
+                  </section>
+                <section id="blog">
                     <hr>
-                    <br>
-                    <i class="fas fa-chalkboard-teacher icon"></i><a class="link" href="registro_docente.php">Docente</a>
-                    <br>
-                    <br>
-                    <i class="fas fa-book icon"></i></i><a class="link" href="registro_alumno.php">Alumno</a>
-                    <br>
-                    <br>
-                    <i class="fas fa-user-secret icon"></i><a class="link" href="registro_externo.php">Externo a FIME</a>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <i class="fas fa-undo-alt icon"></i><a class="link" href="../controlador.php">Regresar</a>
-                    </section>
-                 </div>
-                </form>
+                </section>
 
-
-          
-        </div>
+	        <h3 for="nombre">Nombre</h3>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo"/>
+            <br>
+    	    <h3 for="Numero de empleado">Numero de empleado</h3>
+	        <input type="text" name="Numero de empleado" id="Numero de empleado" placeholder="###"/>
+            <br>
+	        <h3 for="email">Email</h3>
+	        <input type="text" name="email" id="email" placeholder="@" required />
+            <br>
+	        <h3 for="Telefono">Telefono</h3>
+          <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)"/>
+            <br>
+            <h3 for="asunto">Sexo</h3>
+                <input type="radio" name="sexo" value="hombre" id="sexo">
+				<label for="hombre">Hombre</label>
+		
+				<input type="radio" name="sexo" value="mujer" id="sexo">
+				<label for="mujer">Mujer</label>
+            <br>
+	        <h3 for="Username">Username</h3>
+            <input type ="text" name="Username" id="Username" placeholder="Username"/>
+            <br>
+	        <h3 for="Contraseña">Contraseña</h3>
+            <input type ="password" name="Contraseña" id="Contraseña" placeholder="*****"/>
+            <input type="submit" name="enviar"  value="Registrar"/>
+            </div>
       
       </section>
       <br>

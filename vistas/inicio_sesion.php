@@ -3,16 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Inicio</title>
-    <link rel="stylesheet" href="css/fontello.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/blog.css">
-    <link rel="stylesheet" href="css/tarjetas.css">
-    <link rel="stylesheet" href="css/inicio_seccion.css">
 
+    <link rel="stylesheet" href="css/fontello.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/estilos.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/menu.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/banner.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/blog.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/tarjetas.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/inicio_seccion.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
+    
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
     
     
   </head>
@@ -52,7 +53,7 @@
                   echo "<h2>" . $errorLogin . "</h2>";
                 }
               ?>
-                <section id="Bienvenidos">
+                <section id="Inicio_sesion">
                     <h2>Inicio de sesión</h2>
                   </section>
 
@@ -69,7 +70,8 @@
 
                      <input type="submit" value="Login" class="button">
                      <section id="Bienvenidos">
-                        <h4>¿No tienes una cuenta? <a class="link" href="vistas/nuevo_usu.php">Registrate </a></h4>
+                        <br>
+                        <h4>¿No tienes una cuenta? <a class="link" href="vistas/nuevo_usu.php">Registrate</a></h4>
                      </section>
                  </div>
                 </form>

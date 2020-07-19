@@ -1,0 +1,31 @@
+#Registro_sesion {
+    justify-content: center;
+}
+
+
+#Registro_sesion h2,h3{
+    color: white;
+    text-align: center;
+}
+
+#Registro_sesion hr{
+    border: 1.5px solid white;
+}
+#Registro_sesion i{
+    font-size: 35px;
+}
+
+.icon{
+    width: 40%;
+    color:white;
+}
+
+.link{
+    color: white;
+    font-weight: 100px;
+    text-decoration: none;
+}
+.link:hover{
+   color: cadetblue;
+}
+

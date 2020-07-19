@@ -9,12 +9,13 @@
 
 .formulario{
     background: #1C5630;
-    margin-top: 150px;
+    margin-top: 100px;
     padding: 15px;
 }
 
-#Bienvenidos h2{
-    color: white;
+#Inicio_sesion h2,h4{
+    color:white;
+    text-align: center;
   }
 
 #Bienvenidos p,a{
@@ -63,7 +64,16 @@ input[type="password"]{
 @media(min-width:768px)
 {
     .formulario{
-        margin: auto;
+        margin-top: 100px;
+        width: 500px;
+        border-radius: 2%;
+    }
+}
+
+@media(min-width:480px)
+{
+    .formulario{
+        margin-top: 100px;
         width: 500px;
         margin-top: 10px;
         border-radius: 2%;

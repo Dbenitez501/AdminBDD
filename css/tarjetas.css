@@ -6,7 +6,7 @@
 
 .contenedor .tarjetas{
     width: 330px;
-    height: 430px;
+    height: 500px;
     border-radius: 15px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -16,6 +16,7 @@
     background: #1C5630;
     color: white;
 }
+
 
 .contenedor .tarjetas:hover{
     transform: translateY(-15px);

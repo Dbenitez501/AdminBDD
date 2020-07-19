@@ -8,12 +8,15 @@ $db = new DB();
   <head>
     <meta charset="utf-8">
     <title>Inicio</title>     
-    <link rel="stylesheet" href="css/fontello.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/blog.css">
-    <link rel="stylesheet" href="css/tarjetas.css">
+    <link rel="stylesheet" href="css/fontello.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/estilos.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/menu.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/banner.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/blog.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/tarjetas.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/inicio_seccion.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
+
   </head>
   <body>
     <!--encabezado-->
@@ -56,7 +59,9 @@ $db = new DB();
         <h2>Bienvenido <?php
 
         if(isset($_SESSION['user'])) {
-          echo $user->getNombre() . " " . $user->getTipo();
+          echo $user->getNombre();
+          echo "<br>";
+          echo $user->getTipo();
         } else {
           echo "";
         }
@@ -91,7 +96,7 @@ $db = new DB();
               <p>Fecha: <?php echo $dataV["fecha_inicio"]; ?></p>
               <br>
               <p>Hora: <?php echo $dataV["hora_inicio"]; ?></p>
-              <a href="#">Incribir 1</a>            
+              <a href="#">Incribir Conferencia</a>            
             
           </div>
 
