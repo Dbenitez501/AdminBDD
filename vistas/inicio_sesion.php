@@ -24,9 +24,8 @@
       <input type="checkbox" id="menu-bar">
       <label class="icon-menu" for="menu-bar"></label>
       <nav class="menu">
-        <a href="proyecto.php"> Inicio</a>
+        <a href="vistas/proyecto.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
-        <a href="include/logout.php">Cerrar Sesión</a>
       </nav>
     </div>
     </header>
