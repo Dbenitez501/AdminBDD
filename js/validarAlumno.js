@@ -12,6 +12,7 @@ function validar() {
     username = document.getElementById("username").value;
     contra = document.getElementById("contra").value;
 
+    //Formato para los correos
     expresion = /\w+@+\w+\.+[a-z]/;
 
     if(nombre === "" || matricula === "" || carrera === "" || email === "" || username === "" || contra === "") {
