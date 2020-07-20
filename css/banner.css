@@ -20,10 +20,18 @@
 /* Controla el texto en el banner */
 #banner .contenedor{
   position: absolute;
-  top: 20%;
+  top: 200px;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   color: #fff;
+
+  text-align: center;
+
+
+  background: #1C5630;
+  width: 30%;
+  opacity: .87;
+  border-radius: 5px;
 }
 
 #banner h2{
@@ -53,8 +61,10 @@
   #banner a{
     margin-top: 25px;
   }
-  #banner h2,p{
-    display: none;
+  /* Para las letras en el banner */
+  #banner .contenedor{
+    top: 130px;
+    width: 50%;
   }
 }
 
@@ -71,6 +81,11 @@
   #banner h2,p{
     display: block;
   }
+  /* Para las letras en el banner */
+  #banner .contenedor{
+    top: 120px;
+    width: 30%;
+  }
 }
 
 @media (min-width:1024px){
@@ -80,5 +95,11 @@
 
   #banner h2,p{
     display: block;
+  }
+
+  /* Para las letras en el banner */
+  #banner .contenedor{
+    top: 150px;
+    width: 30%;
   }
 }
