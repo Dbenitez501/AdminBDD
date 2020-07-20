@@ -1,3 +1,8 @@
+<?php
+include_once '../include/db.php';
+$db = new DB();
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,11 +19,9 @@
     <link rel="stylesheet" href="../css/registro_sesion.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/registro.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">   
+    <script src="../js/validarAlumno.js"></script>
 
-    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
-    
-    
-    
   </head>
   <body>
     <!--encabezado-->
@@ -48,46 +51,51 @@
       <section class="contenedor">
         <div class="contenedor_2">
         
-        <form action="#" target="" method="get" name="formDatosPersonales">
+          <form action="../include/registrarAlumno.php" target="" method="POST" name="formAlumno" onsubmit="return validar();">
 
-                <section id="Inicio_sesion">
-                    <h2>Alumno</h2>
-                  </section>
-                  <section id="blog">
-                    <hr>
-                </section>
+            <?php
+            $sexo = "";
+            ?>
 
-	        <h3 for="nombre">Nombre</h3>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo"/>
+            <section id="Inicio_sesion">
+              <h2>Alumno</h2>
+            </section>
+            <section id="blog">
+              <hr>
+            </section>
+
+            <h3 for="nombre">Nombre</h3>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo" required>
             <br>
-    	    <h3 for="Matricula">Matricula</h3>
-            <input type="text" name="Matricula" id="Matricula" placeholder="###"/>
+            <h3 for="matricula">Matricula</h3>
+            <input type="text" name="matricula" id="matricula" placeholder="###" required>
             <br>
-    	    <h3 for="Carrera">Carrera</h3>
-	        <input type="text" name="Carrera" id="Carrera" placeholder="(IAS,ITS,IME,IMA..)"/>
+            <h3 for="carrera">Carrera</h3>
+            <input type="text" name="carrera" id="carrera" placeholder="(IAS,ITS,IME,IMA..)" required>
             <br>
-	        <h3 for="email">Email</h3>
-	        <input type="text" name="email" id="email" placeholder="@" required />
+            <h3 for="email">Email</h3>
+            <input type="email" name="email" id="email" placeholder="@" required>
             <br>
-	        <h3 for="Telefono">Telefono</h3>
-            <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)"/>
+            <h3 for="telefono">Telefono</h3>
+            <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)">
             <br>
-            <h3 for="Sexo">Sexo</h3>
-                <input type="radio" name="sexo" value="hombre" id="sexo">
-				<label for="hombre">Hombre</label>
-		
-				<input type="radio" name="sexo" value="mujer" id="sexo">
-				<label for="mujer">Mujer</label>
+            <h3 for="sexo">Sexo</h3>
+            <input type="radio" name="sexo" value="H" id="sexo" <?php if($sexo == "H") echo "checked"; ?>>
+            <label for="H">Hombre</label>		
+            <input type="radio" name="sexo" value="M" id="sexo" <?php if($sexo == "M") echo "checked"; ?>>
+            <label for="M">Mujer</label>
             <br>
-	        <h3 for="Username">Username</h3>
-            <input type ="text" name="Username" id="Username" placeholder="Username"/>
+            <h3 for="username">Username</h3>
+            <input type ="text" name="username" id="username" placeholder="Username" required>
             <br>
-	        <h3 for="Contraseña">Contraseña</h3>
-            <input type ="password" name="Contraseña" id="Contraseña" placeholder="*****"/>
+            <h3 for="contra">Contraseña</h3>
+            <input type ="password" name="contra" id="contra" placeholder="*****" required>
             
-            <input type="submit" name="enviar_alumno"  value="Registrar"/>
-            </div>
-      
+            <input type="submit" name="enviar_alumno"  value="Registrar">
+
+          </form>
+
+        </div>
       </section>
       <br>
       <br>
