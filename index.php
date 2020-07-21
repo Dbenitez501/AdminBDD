@@ -15,6 +15,7 @@ $db = new DB();
     <link rel="stylesheet" href="css/blog.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="css/tarjetas.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="css/inicio_seccion.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="css/tabla.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
 
   </head>
@@ -96,7 +97,7 @@ $db = new DB();
               <p>Fecha: <?php echo $dataV["fecha_inicio"]; ?></p>
               <br>
               <p>Hora: <?php echo $dataV["hora_inicio"]; ?></p>
-              <a href="#">Incribir Conferencia</a>            
+              <a href="#"><input  class="boton_inscribir"  type="submit" value="Inscribir" class="#"></a>           
             
           </div>
 

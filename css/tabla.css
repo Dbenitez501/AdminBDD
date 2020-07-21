@@ -1,0 +1,98 @@
+
+#tabla_conf table{
+    margin: 5%;
+  }
+
+#tabla_conf hr{
+    border: 1.5px solid black;
+  }
+  
+  #tabla_conf table.tabla_conferencia{
+    width: 90%;
+  }
+  
+  #tabla_conf table,th,td{
+    border: 2px solid black;
+    border-collapse: collapse;
+  }
+  #tabla_conf th,td{
+    padding: 10px;
+  }
+  #tabla_conf th{
+    background: #498B2A;
+    color: #FFFFFF;
+  }
+  #tabla_conf .titulo{
+    width: 20%;
+  }
+  #tabla_conf .desc{
+    width: 40%;
+  }
+
+  #tabla_conf .boton_nuevo{
+    text-decoration: none;
+    padding: 5%;
+    font-weight: 600%;
+    width: 60%;
+    font-size: 90%;
+    color: #ffffff;
+    background-color: #00a1ff;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+  }
+  #tabla_conf .boton_nuevo:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+  }
+
+
+  #tabla_conf .boton_mod{
+    text-decoration: none;
+    margin: 3%;
+    padding: 5%;
+    padding: 5%;
+    font-weight: 600%;
+    font-size: 90%;
+    color: #ffffff;
+    background-color: #565651;
+    border-radius: 6px;
+    border: 2px solid black;
+  }
+  #tabla_conf .boton_mod:hover{
+    color: #565651;
+    background-color: #ffffff;
+  }
+
+  #tabla_conf .boton_elim{
+    text-decoration: none;
+    padding: 5%;
+    padding: 5%;
+    font-weight: 600%;
+    font-size: 90%;
+    color: #ffffff;
+    background-color: #BF0001;
+    border-radius: 6px;
+    border: 2px solid black;
+  }
+  #tabla_conf .boton_elim:hover{
+    color: #BF0001;
+    background-color: #ffffff;
+  }
+
+
+.boton_inscribir{
+    text-decoration: none;
+    padding: 2%;
+    font-weight: 600%;
+    width: 30%;
+    margin-top: 5%;
+    font-size: 90%;
+    color: black;
+    background-color: white;
+    border-radius: 6px;
+    border: 2px solid #1C5630;
+}
+.boton_inscribir:hover{
+    color:white;
+    background-color: #1C5630;
+  }
