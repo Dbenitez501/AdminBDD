@@ -4,14 +4,13 @@ $db = new DB();
 
 //Recibe los datos y los almacena en variables
 $nombre     = $_POST['nombre'];
-$matricula  = $_POST['matricula'];
-$carrera    = $_POST['carrera'];
+$numero_emp  = $_POST['numero_emp'];
 $email      = $_POST['email'];
 $username   = $_POST['username'];
 $contra     = $_POST['contra'];
 $sexo;
 $telefono;
-$tipo = 3;
+$tipo = 2;
 
 if(isset($_POST['sexo'])) {
     $sexo = $_POST['sexo'];
@@ -23,9 +22,9 @@ if(isset($_POST['telefono'])) {
     $telefono = $_POST['telefono'];
 }
 
-//Consulta para insertar los datos del alumno
-$insertar = "INSERT INTO usuarios (username, contra, nombre, carrera, matricula, correo, telefono, sexo, id_tipo) VALUES 
-('$username', '$contra', '$nombre', '$carrera', '$matricula', '$email', '$telefono', '$sexo', '$tipo')";
+//Consulta para insertar los datos del Docente
+$insertar = "INSERT INTO usuarios (username, contra, nombre, matricula, correo, telefono, sexo, id_tipo) VALUES 
+('$username', '$contra', '$nombre', '$numero_emp', '$email', '$telefono', '$sexo', '$tipo')";
 
 //VERIFICA SI YA EXISTE EL USERNAME
 $verificarUsuario = $db->connect()->prepare("SELECT * FROM usuarios WHERE username = :user");
@@ -51,13 +50,13 @@ if($verificarCorreo->rowCount() > 0) {
     exit;
 }
 
-//VERIFICA SI YA EXISTE LA MATRICULA
-$verificarMatricula = $db->connect()->prepare("SELECT * FROM usuarios WHERE matricula = :mat");
-$verificarMatricula->execute(['mat' => $matricula]);
+//VERIFICA SI YA EXISTE EL NUMERO DE EMPLEADO
+$verificarNumEmp = $db->connect()->prepare("SELECT * FROM usuarios WHERE matricula = :num_emp");
+$verificarNumEmp->execute(['num_emp' => $numero_emp]);
 
-if($verificarMatricula->rowCount() > 0) {
+if($verificarNumEmp->rowCount() > 0) {
     echo '<script>
-        alert("La matrícula ya existe");
+        alert("El número de empleado ya existe");
         window.history.go(-1);
     </script>';
     exit;

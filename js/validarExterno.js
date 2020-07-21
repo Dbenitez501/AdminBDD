@@ -1,21 +1,19 @@
-function validar() 
+function validar()
 {
-    var nombre, matricula, carrera, email, telefono, sexo, username, contra, expresion;
+    var nombre, email, telefono, sexo, username, contra, expresion;
     var s = false;
-    
+
     nombre = document.getElementById("nombre").value;
-    matricula = document.getElementById("matricula").value;
-    carrera = document.getElementById("carrera").value;
     email = document.getElementById("email").value;
     telefono = document.getElementById("telefono").value;
-    sexo = document.formAlumno.sexo;
+    sexo = document.formExterno.sexo;
     username = document.getElementById("username").value;
     contra = document.getElementById("contra").value;
 
     //Formato para los correos
     expresion = /\w+@+\w+\.+[a-z]/;
 
-    if(nombre === "" || matricula === "" || carrera === "" || email === "" || username === "" || contra === "") {
+    if(nombre === "" || email === "" || username === "" || contra === "") {
         alert("Todos los campos son obligatorios, excepto el Teléfono");
         return false;
     } 

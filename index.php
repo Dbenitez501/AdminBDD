@@ -56,7 +56,7 @@ $db = new DB();
       </section>
 
       <section id="Bienvenidos">
-        <h2>Bienvenido <?php
+        <h2>Bienvenido/a <?php
 
         if(isset($_SESSION['user'])) {
           echo $user->getNombre();

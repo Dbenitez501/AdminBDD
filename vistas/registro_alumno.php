@@ -52,7 +52,6 @@ $db = new DB();
         <div class="contenedor_2">
         
           <form action="../include/registrarAlumno.php" target="" method="POST" name="formAlumno" onsubmit="return validar();">
-
             <?php
             $sexo = "";
             ?>

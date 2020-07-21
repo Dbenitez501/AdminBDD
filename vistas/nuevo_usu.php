@@ -47,41 +47,30 @@
       <section class="contenedor">
         <div class="contenedor_2">
         
-        <form class="formulario" action="" method="POST">
-              <?php
-              //Arroja un error si el usuario y/o contraseña están incorrectos
-              //variable $errorLogin se encuentra en el archivo index.php
-                if(isset($errorLogin)) {
-                  echo "<h2>" . $errorLogin . "</h2>";
-                }
-              ?>
-                    <section id="Registro_sesion">
-                    <h2>Registro</h2>
-                    <br>
-                    <h3>Favor de seleccionar el tipo de registro</h3>
-                    <br>
-                    <hr>
-                    <br>
-                    <i class="fas fa-chalkboard-teacher icon"></i><a class="link" href="registro_docente.php">Docente</a>
-                    <br>
-                    <br>
-                    <i class="fas fa-book icon"></i></i><a class="link" href="registro_alumno.php">Alumno</a>
-                    <br>
-                    <br>
-                    <i class="fas fa-user-secret icon"></i><a class="link" href="registro_externo.php">Externo a FIME</a>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <i class="fas fa-undo-alt icon"></i><a class="link" href="../controlador.php">Regresar</a>
-                    </section>
-                 </div>
-                </form>
+          <form class="formulario" action="" method="POST">
+            <section id="Registro_sesion">
+              <h2>Registro</h2>
+              <br>
+              <h3>Favor de seleccionar el tipo de registro</h3>
+              <br>
+              <hr>
+              <br>
+              <i class="fas fa-chalkboard-teacher icon"></i><a class="link" href="registro_docente.php">Docente</a>
+              <br>
+              <br>
+              <i class="fas fa-book icon"></i></i><a class="link" href="registro_alumno.php">Alumno</a>
+              <br>
+              <br>
+              <i class="fas fa-user-secret icon"></i><a class="link" href="registro_externo.php">Externo a FIME</a>
+              <br>
+              <br>
+              <br>
+              <br>
+              <i class="fas fa-undo-alt icon"></i><a class="link" href="../controlador.php">Regresar</a>
+            </section>
+          </form>
 
-
-          
-        </div>
-      
+        </div>      
       </section>
       <br>
       <br>

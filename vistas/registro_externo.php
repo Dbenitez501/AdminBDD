@@ -1,3 +1,8 @@
+<?php
+include_once '../include/db.php';
+$db = new DB();
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,10 +19,8 @@
     <link rel="stylesheet" href="../css/registro_sesion.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/registro.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
-
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
-    
-    
+    <script src="../js/validarExterno.js"></script>    
     
   </head>
   <body>
@@ -35,7 +38,6 @@
     </header>
     <!--encabezado-->
 
-
     <main>
       <section id="banner">
         <img src="../ima/fime.jpg">
@@ -48,39 +50,43 @@
       <section class="contenedor">
         <div class="contenedor_2">
         
-        <form action="#" target="" method="get" name="formDatosPersonales">
+          <form action="../include/registrarExterno.php" target="" method="POST" name="formExterno" onsubmit="return validar();">
+            <?php
+            $sexo = "";
+            ?>
 
-                <section id="Inicio_sesion">
-                    <h2>Externo a FIME</h2>
-                  </section>
-                  <section id="blog">
-                    <hr>
-                </section>
+            <section id="Inicio_sesion">
+                <h2>Externo a FIME</h2>
+              </section>
+              <section id="blog">
+                <hr>
+            </section>
 
-	        <h3 for="nombre">Nombre</h3>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo"/>
+            <h3 for="nombre">Nombre</h3>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo" required>
             <br>
-	        <h3 for="email">Email</h3>
-	        <input type="text" name="email" id="email" placeholder="@" required />
+            <h3 for="email">Email</h3>
+            <input type="email" name="email" id="email" placeholder="@" required>
             <br>
-	        <h3 for="Telefono">Telefono</h3>
-            <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)"/>
+            <h3 for="telefono">Telefono</h3>
+            <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)">
             <br>
-            <h3 for="asunto">Sexo</h3>
-                <input type="radio" name="sexo" value="hombre" id="sexo">
-				<label for="hombre">Hombre</label>
-		
-				<input type="radio" name="sexo" value="mujer" id="sexo">
-				<label for="mujer">Mujer</label>
+            <h3 for="sexo">Sexo</h3>
+            <input type="radio" name="sexo" value="H" id="sexo" <?php if($sexo == "H") echo "checked"; ?>>
+            <label for="H">Hombre</label>		
+            <input type="radio" name="sexo" value="M" id="sexo" <?php if($sexo == "M") echo "checked"; ?>>
+            <label for="M">Mujer</label>
             <br>
-	        <h3 for="Username">Username</h3>
-            <input type ="text" name="Username" id="Username" placeholder="Username"/>
+            <h3 for="username">Username</h3>
+            <input type ="text" name="username" id="username" placeholder="Username" required>
             <br>
-	        <h3 for="Contraseña">Contraseña</h3>
-            <input type ="password" name="Contraseña" id="Contraseña" placeholder="*****"/>
-            <input type="submit" name="enviar"  value="Registrar"/>
-            </div>
-      
+            <h3 for="contra">Contraseña</h3>
+            <input type ="password" name="contra" id="contra" placeholder="*****" required>
+
+            <input type="submit" name="enviar_externo"  value="Registrar">
+
+          </form>
+        </div>      
       </section>
       <br>
       <br>
