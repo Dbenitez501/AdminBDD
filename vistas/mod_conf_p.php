@@ -60,6 +60,7 @@ $db = new DB();
             $queryCB->execute();
             $arrayList = $queryCB->fetchAll(PDO::FETCH_ASSOC);
             ?>
+            
 
             <section id="Inicio_sesion">
               <h2>Conferencia Presencial</h2>
