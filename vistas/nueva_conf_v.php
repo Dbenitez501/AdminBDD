@@ -1,8 +1,3 @@
-<?php
-include_once '../include/db.php';
-$db = new DB();
-?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -18,9 +13,12 @@ $db = new DB();
     <link rel="stylesheet" href="../css/inicio_seccion.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/registro_sesion.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/registro.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
-    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">   
-    <script src="../js/validarAlumno.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/tcal.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />    
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+
+    <script type="text/javascript" src="../js/tcal.js"></script>
+    <script src="../js/validarRegistroVirtual.js"></script>
 
   </head>
   <body>
@@ -31,7 +29,7 @@ $db = new DB();
       <input type="checkbox" id="menu-bar">
       <label class="icon-menu" for="menu-bar"></label>
       <nav class="menu">
-        <a href="../index.php"> Inicio</a>
+        <a href="../controlador.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
       </nav>
     </div>
@@ -43,18 +41,15 @@ $db = new DB();
       <section id="banner">
         <img src="../ima/fime.jpg">
         <div class="contenedor">
-          <h2>Conferencias</h2>
-          <p>Apuntate para alguna conferencia</p>
+          <h2>Administración</h2>
+          <p>Panel para administradores</p>
         </div>
       </section>
       
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarAlumno.php" target="" method="POST" name="formAlumno" onsubmit="return validar();">
-            <?php
-            $sexo = "";
-            ?>
+          <form action="../include/registrarCVirtual.php" target="" method="POST" name="formRegConfVirtual" onsubmit="return validar();">
 
             <section id="Inicio_sesion">
               <h2>Nueva Conferencia Virtual</h2>
@@ -73,22 +68,22 @@ $db = new DB();
             <input type="text" name="expositor" id="expositor" placeholder="Nombre" required>
             <br>
             <h3 for="fecha">Fecha</h3>
-            <input type="text" name="fecha" id="fecha" placeholder="dia/mes/año" required>
+            <input type="text" name="fecha" id="fecha" class="tcal" placeholder="año/mes/día (Seleccionar)">
             <br>
             <h3 for="hora">Hora</h3>
             <input type ="text" name="hora" id="hora" placeholder="24h">
             <br>
             <h3 for="plataforma">Plataforma</h3>
-            <input type ="text" name="plataforma" id="plataforma" placeholder="(MsTeams,Zoom..)">
+            <input type ="text" name="plataforma" id="plataforma" placeholder="(MsTeams,Zoom..)" required>
             <br>
-            <h3 for="codigo">Código Plataforma</h3>
-            <input type ="text" name="codigo" id="codigo" placeholder="">
+            <h3 for="codigo_plat">Código Plataforma</h3>
+            <input type ="text" name="codigo_plat" id="codigo_plat" placeholder="">
             <br>
             <h3 for="codigo_as">Código de asistencia</h3>
             <input type ="text" name="codigo_as" id="codigo_as" required>
             <br>
             <h3 for="cap_max">Capacidad Máxima </h3>
-            <input type ="text" name="cap_max" id="cap_max" placeholder="###">
+            <input type ="text" name="cap_max" id="cap_max" placeholder="###" required>
             
             <input type="submit" name="registrar_conf_v"  value="Registrar">
 

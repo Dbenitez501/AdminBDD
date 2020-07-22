@@ -72,8 +72,11 @@ if(!$query) {
         window.history.go(-1);
     </script>';
 } else {
-    echo '<script>alert("Ha sido registrado correctamente");</script>';
-    header("location: ../controlador.php");
+    echo '<script>
+            alert("Se registró correctamente");
+            window.location = "../controlador.php";
+        </script>';
+    //header("location: ../controlador.php");
 }
 
 ?>

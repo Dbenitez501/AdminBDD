@@ -10,7 +10,12 @@ if(isset($_SESSION['user']))
 {
     //"Hay sesión existente";
     $user->setUser($userSession->getCurrentUser());
-    include_once 'index.php';
+    $tipo = $user->getTipo();
+    if($tipo == "Admin") {
+        include_once 'menu_admin.php';
+    } else {
+        include_once 'index.php';
+    }    
 
 } elseif(isset($_POST['username']) && isset($_POST['password'])) {
     //"Si no hay sesión, pero hay valores en los campos de texto del inicio de sesión";
@@ -23,8 +28,13 @@ if(isset($_SESSION['user']))
         //Si el usuario existe en la BD, entonces obtenemos sus datos";
         $userSession->setCurrentUser($userForm);
         $user->setUser($userForm);
+        $tipo = $user->getTipo();
 
-        include_once 'index.php';
+        if($tipo == "Admin") {
+            include_once 'menu_admin.php';
+        } else {
+            include_once 'index.php';
+        }
 
     } else {
         //Nombre de usuario y/o contraseña incorrectos";

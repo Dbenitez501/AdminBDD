@@ -27,7 +27,7 @@
       <input type="checkbox" id="menu-bar">
       <label class="icon-menu" for="menu-bar"></label>
       <nav class="menu">
-        <a href="../index.php"> Inicio</a>
+        <a href="../controlador.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
       </nav>
     </div>
@@ -39,8 +39,8 @@
       <section id="banner">
         <img src="../ima/fime.jpg">
         <div class="contenedor">
-          <h2>Conferencias</h2>
-          <p>Apuntate para alguna conferencia</p>
+          <h2>Administración</h2>
+          <p>Panel para administradores</p>
         </div>
       </section>
       
@@ -54,15 +54,15 @@
               <br>
               <hr>
               <br>
-              <i class="fas fa-street-view icon"></i><a class="link" href="nueva_conf_p.php">Presencial</a>
+              <i class="fas fa-street-view icon"></i><a class="link" href="conferenciasP.php">Presencial</a>
               <br>
               <br>
-              <i class="fas fa-wifi icon"></i><a class="link" href="nueva_conf_v.php">Virtual</a>
+              <i class="fas fa-wifi icon"></i><a class="link" href="conferenciasV.php">Virtual</a>
               <br>
               <br>
               <br>
               <br>
-              <i class="fas fa-undo-alt icon"></i><a class="link" href="admin_conferencias.php">Regresar</a>
+              <i class="fas fa-undo-alt icon"></i><a class="link" href="../controlador.php">Regresar</a>
             </section>
           </form>
 

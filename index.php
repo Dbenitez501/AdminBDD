@@ -1,6 +1,10 @@
 <?php
 include_once 'include/db.php';
+include_once 'include/presencial.php';
+include_once 'include/virtual.php';
 $db = new DB();
+$presencial = new Presencial();
+$virtual = new Virtual();
 ?>
 
 <!DOCTYPE html>
@@ -77,34 +81,65 @@ $db = new DB();
       <?php
         $queryVirtual = $db->connect()->prepare('SELECT * FROM virtual WHERE estado=1');
         $queryVirtual->execute();
+
+        $queryPresencial = $db->connect()->prepare('SELECT *FROM presencial WHERE estado=1');
+        $queryPresencial->execute();
         
         if($queryVirtual->rowCount()) {
           while ($dataV = $queryVirtual->fetch(PDO::FETCH_ASSOC)) { 
       ?>
         
         <div class="contenedor_2">
-
           <div class="tarjetas">
 
-              <img src='ima/persona.jpg'>
+              <img src="ima/cubero.jpg">
             
               <h4><?php echo $dataV["titulo"]; ?></h4>
+              <p><?php echo "(" . $dataV["tipo"] . ")";?></p>
               <br>
-              <p><?php echo $dataV["expositor"]; ?></p>
+              <p>Expositor: <?php echo $dataV["expositor"]; ?></p>
               <br>
               <p><?php echo $dataV["descripcion"]; ?></p>
               <br>
               <p>Fecha: <?php echo $dataV["fecha_inicio"]; ?></p>
               <br>
               <p>Hora: <?php echo $dataV["hora_inicio"]; ?></p>
+              <br>
+              <p>Plataforma: <?php echo $virtual->getPlataforma($dataV["titulo"]);?></p>
               <a href="#"><input  class="boton_inscribir"  type="submit" value="Inscribir" class="#"></a>           
             
           </div>
 
       <?php
           }
+        } 
+        if($queryPresencial->rowCount()) {
+          while($dataP = $queryPresencial->fetch(PDO::FETCH_ASSOC)) {
+      ?>
+        <div class="contenedor_2">
+          <div class="tarjetas">
+
+              <img src="ima/cubero.jpg">
+            
+              <h4><?php echo $dataP["titulo"]; ?></h4>
+              <p><?php echo "(" . $dataP["tipo"] . ")";?></p>
+              <br>
+              <p>Expositor: <?php echo $dataP["expositor"]; ?></p>
+              <br>
+              <p><?php echo $dataP["descripcion"]; ?></p>
+              <br>
+              <p>Fecha: <?php echo $dataP["fecha_inicio"]; ?></p>
+              <br>
+              <p>Hora: <?php echo $dataP["hora_inicio"]; ?></p>
+              <br>
+              <p>Lugar: <?php echo $presencial->getNombreLugar($dataP["titulo"]) . ", " .  $presencial->getUbicacion($dataP["titulo"]); ?></p>
+              <a href="#"><input  class="boton_inscribir"  type="submit" value="Inscribir" class="#"></a>           
+            
+          </div>
+      <?php
+          }
         }  
-        ?>
+      ?>
 
         </div>
       </section>

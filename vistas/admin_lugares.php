@@ -12,12 +12,11 @@
     <link rel="stylesheet" href="../css/tarjetas.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/inicio_seccion.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/registro_sesion.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/registro.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/tabla.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
-
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
-    
-    
-    
+
   </head>
   <body>
     <!--encabezado-->
@@ -27,53 +26,44 @@
       <input type="checkbox" id="menu-bar">
       <label class="icon-menu" for="menu-bar"></label>
       <nav class="menu">
-        <a href="../index.php"> Inicio</a>
-        <a href="https://www.fime.uanl.mx/">FIME</a>
+        <a href="../controlador.php"> Inicio</a>
+        <a href="https://www.fime.uanl.mx/">FIME</a>        
       </nav>
     </div>
     </header>
     <!--encabezado-->
 
-
     <main>
       <section id="banner">
         <img src="../ima/fime.jpg">
         <div class="contenedor">
-          <h2>Conferencias</h2>
-          <p>Apuntate para alguna conferencia</p>
+          <h2>Administración</h2>
+          <p>Panel para administradores</p>
         </div>
       </section>
       
-      <section class="contenedor">
-        <div class="contenedor_2">
-        
-          <form class="formulario" action="" method="POST">
-            <section id="Registro_sesion">
-              <h2>Menú</h2>
-              <br>
-              <h3>Bienvenido: XXX</h3>
-              <br>
-              <hr>
-              <br>
-              <i class="far fa-plus-square icon"></i><a class="link" href="admin_conferencias.php">Nueva conferencia</a>
-              <br>
-              <br>
-              <i class="fas fa-map-marker-alt icon"></i><a class="link" href="registro_alumno.php">Lugares de exposición</a>
-              <br>
-              <br>
-              <i class="far fa-clipboard icon"></i><a class="link" href="registro_externo.php">Registros a Conferencia</a>
-              <br>
-              <br>
-              <br>
-              <br>
-              <i class="fas fa-undo-alt icon"></i><a class="link" href="../controlador.php">Regresar</a>
-            </section>
-          </form>
-
-        </div>      
+      <section id="Bienvenidos">
+        <h2>Lugares de exposición</h2>
       </section>
-      <br>
-      <br>
+
+      <div id="tabla_conf" align="center">
+        <table class="tabla_conferencia">
+          <tr>
+            <th>#</th>
+            <th class="titulo">Nombre</th>
+            <th class="desc">Ubicación</th>
+            <th>Capacidad</th>
+            <th><a href="lugares_nuevo.php"><input type="submit" value="Nuevo" class="boton_nuevo"></a></th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>CIDET</td>
+            <td class="desc">Ubicación 1</td>
+            <td>100</td>
+            <td align="center"><input type="submit" value="Modificar" class="boton_mod"><input type="submit" value="Eliminar" class="boton_elim"></td>
+          </tr>                
+        </table>
+      </div>
 
       <footer id="redes">
         <div class="contenedor">

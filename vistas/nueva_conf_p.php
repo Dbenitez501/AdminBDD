@@ -18,9 +18,12 @@ $db = new DB();
     <link rel="stylesheet" href="../css/inicio_seccion.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/registro_sesion.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/registro.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" type="text/css" href="../css/tcal.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
-    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">   
-    <script src="../js/validarAlumno.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+
+    <script type="text/javascript" src="../js/tcal.js"></script>
+    <script src="../js/validarRegistroPresencial.js"></script>
 
   </head>
   <body>
@@ -31,7 +34,7 @@ $db = new DB();
       <input type="checkbox" id="menu-bar">
       <label class="icon-menu" for="menu-bar"></label>
       <nav class="menu">
-        <a href="../index.php"> Inicio</a>
+        <a href="../controlador.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
       </nav>
     </div>
@@ -43,17 +46,19 @@ $db = new DB();
       <section id="banner">
         <img src="../ima/fime.jpg">
         <div class="contenedor">
-          <h2>Conferencias</h2>
-          <p>Apuntate para alguna conferencia</p>
+          <h2>Administración</h2>
+          <p>Panel para administradores</p>
         </div>
       </section>
       
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarAlumno.php" target="" method="POST" name="formAlumno" onsubmit="return validar();">
+          <form action="../include/registrarCPresencial.php" target="" method="POST" name="formRegConfPresencial" onsubmit="return validar();">
             <?php
-            $sexo = "";
+            $queryCB = $db->connect()->prepare("SELECT * FROM lugar_expo");
+            $queryCB->execute();
+            $arrayList = $queryCB->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
             <section id="Inicio_sesion">
@@ -64,31 +69,37 @@ $db = new DB();
             </section>
 
             <h3 for="titulo">Titulo</h3>
-            <input type="text" name="titulo" id="titulo" placeholder="..." required>
+            <input type="text" name="titulo" id="titulo" placeholder="...">
             <br>
             <h3 for="descripcion">Descripción</h3>
-            <input type="text" name="descripcion" id="descripcion" placeholder="descripción" required>
+            <input type="text" name="descripcion" id="descripcion" placeholder="descripción">
             <br>
             <h3 for="expositor">Expositor</h3>
-            <input type="text" name="expositor" id="expositor" placeholder="Nombre" required>
+            <input type="text" name="expositor" id="expositor" placeholder="Nombre">
             <br>
             <h3 for="fecha">Fecha</h3>
-            <input type="text" name="fecha" id="fecha" placeholder="dia/mes/año" required>
+            <input type="text" name="fecha" id="fecha" class="tcal" placeholder="año/mes/día (Seleccionar)">
             <br>
             <h3 for="hora">Hora</h3>
             <input type ="text" name="hora" id="hora" placeholder="24h">
             <br>
             <h3 for="lugar">Lugar</h3>
-            <select name="example">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="-">Other</option>
+            <select name="lugar" id="lugar">
+              <option value="escoge">--Escoge lugar--</option>
+              <?php 
+              foreach($arrayList as $nombre) {
+              ?>
+              <option value="<?php echo $nombre['id_lugar'];?>"><?php echo $nombre['nombre'];?></option>
+              <?php
+              }
+              ?>
             </select>
             <br>
-            <h3 for="contra">Código de asistencia</h3>
-            <input type ="text" name="codigo" id="codigo" required>
+            <h3 for="codigo_as">Código de asistencia</h3>
+            <input type ="text" name="codigo_as" id="codigo_as">
+            <br>
             
-            <input type="submit" name="enviar_alumno"  value="Registrar">
+            <input type="submit" name="registrar_conf_p"  value="Registrar">
 
           </form>
 
