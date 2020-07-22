@@ -43,7 +43,7 @@
     <main>
       <section id="banner">
         <img src="ima/fime.jpg">
-        <div class="contenedor">
+        <div class="contenedor_admin">
           <h2>Administración</h2>
           <p>Panel para administradores</p>
         </div>
@@ -73,7 +73,7 @@
               <i class="fas fa-map-marker-alt icon"></i><a class="link" href="vistas/admin_lugares.php">Lugares de exposición</a>
               <br>
               <br>
-              <i class="far fa-clipboard icon"></i><a class="link" href="">Registros a Conferencia</a>
+              <i class="far fa-clipboard icon"></i><a class="link" href="vistas/registros_conferencia.php">Registros Conferencia</a>
               <br>
               <br>
             </section>

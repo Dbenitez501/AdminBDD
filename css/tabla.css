@@ -1,12 +1,19 @@
 #tabla_conf table{
   margin: 5%;
 }
+#tabla_reg table{
+  margin: 5%;
+}
 
 #tabla_conf hr{
   border: 1.5px solid black;
 }
   
 #tabla_conf table.tabla_conferencia{
+  width: 90%;
+}
+
+#tabla_reg table.tabla_conferencia{
   width: 90%;
 }
 
@@ -21,6 +28,38 @@
   background: #498B2A;
   color: #FFFFFF;
 }
+
+#tabla_reg table,th,td{
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+#tabla_reg th,td{
+  padding: 10px;
+}
+#tabla_reg th{
+  background: #498B2A;
+  color: #FFFFFF;
+}
+#tabla_reg .nom{
+  width: 20%;
+}
+#tabla_reg .tipo{
+  width: 10%;
+}
+
+#tabla_reg .Conferencia{
+  width: 30%;
+}
+#tabla_reg .Código{
+  width: 10%;
+}
+Reconocimiento
+#tabla_reg .Reconocimiento{
+  width: 10%;
+}
+
+
+
 #tabla_conf .titulo{
   width: 10%;
 }

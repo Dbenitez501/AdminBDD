@@ -52,7 +52,7 @@
           <form action="../include/registrarCVirtual.php" target="" method="POST" name="formRegConfVirtual" onsubmit="return validar();">
 
             <section id="Inicio_sesion">
-              <h2>Nueva Conferencia Virtual</h2>
+              <h2>Conferencia Virtual</h2>
             </section>
             <section id="blog">
               <hr>
@@ -85,7 +85,7 @@
             <h3 for="cap_max">Capacidad Máxima </h3>
             <input type ="text" name="cap_max" id="cap_max" placeholder="###" required>
             
-            <input type="submit" name="registrar_conf_v"  value="Registrar">
+            <input type="submit" name="registrar_conf_v"  value="Modificar">
 
           </form>
 

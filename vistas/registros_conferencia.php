@@ -1,3 +1,10 @@
+<?php
+include_once '../include/db.php';
+include_once '../include/presencial.php';
+$db = new DB();
+$pre = new Presencial();
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -43,25 +50,21 @@
       </section>
       
       <section id="Bienvenidos">
-        <h2>Lugares de exposición</h2>
+        <h2>Registros a Conferencias</h2>
       </section>
 
-      <div id="tabla_conf" align="center">
+      <div id="tabla_reg" align="center">
         <table class="tabla_conferencia">
           <tr>
-            <th>#</th>
-            <th class="titulo">Nombre</th>
-            <th class="desc">Ubicación</th>
-            <th>Capacidad</th>
-            <th><a href="lugares_nuevo.php"><input type="submit" value="Nuevo" class="boton_nuevo"></a></th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>CIDET</td>
-            <td class="desc">Ubicación 1</td>
-            <td>100</td>
-            <td align="center"><input type="submit" value="Modificar" class="boton_mod"><input type="submit" value="Eliminar" class="boton_elim"></td>
-          </tr>                
+            <th>Id</th>
+            <th class="nom">Nombre</th>
+            <th class="tipo">Tipo</th>
+            <th class="Conferencia">Conferencia</th>
+            <th class="Fecha">Fecha</th>
+            <th class="Código">Código de Asistencia</th>
+            <th class="Reconocimiento">Aplica Reconocimiento</th>
+            
+          </tr>           
         </table>
       </div>
 

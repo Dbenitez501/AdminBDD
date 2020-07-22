@@ -52,40 +52,24 @@
           <form action="../include/registrarCVirtual.php" target="" method="POST" name="formRegConfVirtual" onsubmit="return validar();">
 
             <section id="Inicio_sesion">
-              <h2>Nueva Conferencia Virtual</h2>
+              <h2>Asistencia a: ####</h2>
+              <br>
+              <h4>Fecha: ##/##/##</h2>
+              <br>
+              <h4>Hora:##:##</h2>
             </section>
             <section id="blog">
               <hr>
             </section>
 
-            <h3 for="titulo">Titulo</h3>
-            <input type="text" name="titulo" id="titulo" placeholder="..." required>
+            <h3 for="code">Código de asistencia:</h3>
+            <input type="text" name="code" id="code" placeholder="......" required>
             <br>
-            <h3 for="descripcion">Descripción</h3>
-            <input type="text" name="descripcion" id="descripcion" placeholder="descripción" required>
+            <h3 for="comentario">Comentario:</h3>
             <br>
-            <h3 for="expositor">Expositor</h3>
-            <input type="text" name="expositor" id="expositor" placeholder="Nombre" required>
-            <br>
-            <h3 for="fecha">Fecha</h3>
-            <input type="text" name="fecha" id="fecha" class="tcal" placeholder="año/mes/día (Seleccionar)">
-            <br>
-            <h3 for="hora">Hora</h3>
-            <input type ="text" name="hora" id="hora" placeholder="24h">
-            <br>
-            <h3 for="plataforma">Plataforma</h3>
-            <input type ="text" name="plataforma" id="plataforma" placeholder="(MsTeams,Zoom..)" required>
-            <br>
-            <h3 for="codigo_plat">Código Plataforma</h3>
-            <input type ="text" name="codigo_plat" id="codigo_plat" placeholder="">
-            <br>
-            <h3 for="codigo_as">Código de asistencia</h3>
-            <input type ="text" name="codigo_as" id="codigo_as" required>
-            <br>
-            <h3 for="cap_max">Capacidad Máxima </h3>
-            <input type ="text" name="cap_max" id="cap_max" placeholder="###" required>
+            <textarea  type="textarea" name="comentario" id="comentario" placeholder="(Opcional)" style="font-size:20px ;margin:5px; width: 75%; height: 150px;"></textarea>
             
-            <input type="submit" name="registrar_conf_v"  value="Registrar">
+            <input type="submit" name="guardar_asistencia"  value="Guardar">
 
           </form>
 

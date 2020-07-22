@@ -38,7 +38,7 @@
     <main>
       <section id="banner">
         <img src="../ima/fime.jpg">
-        <div class="contenedor">
+        <div class="contenedor_admin">
           <h2>Administración</h2>
           <p>Panel para administradores</p>
         </div>

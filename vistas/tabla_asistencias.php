@@ -43,27 +43,63 @@
       </section>
       
       <section id="Bienvenidos">
-        <h2>Lugares de exposición</h2>
+        <h2>Conferencias Presenciales</h2>
       </section>
 
       <div id="tabla_conf" align="center">
         <table class="tabla_conferencia">
           <tr>
-            <th>#</th>
-            <th class="titulo">Nombre</th>
-            <th class="desc">Ubicación</th>
-            <th>Capacidad</th>
-            <th><a href="lugares_nuevo.php"><input type="submit" value="Nuevo" class="boton_nuevo"></a></th>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Lugar</th>
+            <th>Asistencia</th>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>CIDET</td>
-            <td class="desc">Ubicación 1</td>
-            <td>100</td>
-            <td align="center"><input type="submit" value="Modificar" class="boton_mod"><input type="submit" value="Eliminar" class="boton_elim"></td>
-          </tr>                
+          <tr>        
+            <td></td> 
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>             
+            <td align="center"><a href="asistencia.php"><input type="submit" value="Asistencia" class="boton_mod"></a></td>
+          </tr>             
         </table>
       </div>
+
+
+      <section id="Bienvenidos">
+        <h2>Conferencias Virtuales</h2>
+      </section>
+
+      <div id="tabla_conf" align="center">
+        <table class="tabla_conferencia">
+          <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Plataforma</th>
+            <th>Código de Acceso </th>
+            <th>Asistencia</th>
+          </tr>
+          <tr>      
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>                
+            <td align="center"><a href="asistencia.php"><input type="submit" value="Asistencia" class="boton_mod"></a></td>
+          </tr>             
+        </table>
+      </div>
+
+      
 
       <footer id="redes">
         <div class="contenedor">

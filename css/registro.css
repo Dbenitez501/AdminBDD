@@ -33,6 +33,8 @@ form input[type="email"]{
     display:inline-block;
 }
 
+
+
 form input[type="submit"]{
 	border: none;
     width: 100%;

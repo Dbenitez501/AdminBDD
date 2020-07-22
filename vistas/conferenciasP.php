@@ -43,7 +43,7 @@ $pre = new Presencial();
     <main>
       <section id="banner">
         <img src="../ima/fime.jpg">
-        <div class="contenedor">
+        <div class="contenedor_admin">
           <h2>Administración</h2>
           <p>Panel para administradores</p>
         </div>
@@ -85,7 +85,8 @@ $pre = new Presencial();
             <td><?php echo $data["codigo_asistencia"];?></td>
             <td><?php echo $pre->getEstado($data['estado']);?></td>
                        
-            <td align="center"><input type="submit" value="Modificar" class="boton_mod"><input type="submit" value="Eliminar" class="boton_elim"></td>
+            <td align="center"><a href="mod_conf_p.php"><input type="submit" value="Modificar" class="boton_mod"></a><input type="submit" value="Eliminar" class="boton_elim"></td>
+            
           </tr> 
           <?php
               }
