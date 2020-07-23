@@ -44,6 +44,7 @@
     </header>
     <!--encabezado-->
 
+    
     <main>
       <section id="banner">
         <img src="ima/fime.jpg">
