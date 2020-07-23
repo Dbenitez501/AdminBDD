@@ -1,0 +1,154 @@
+  #piepagina {
+    text-align: center;
+    background: #28313d;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .clr {
+    clear: both;
+  }
+  .bg-dark {
+    background:#28313D;
+    color: #fff;
+  }
+  #obj-info{
+    height: 400px;
+    background-position: center center;
+    background: radial-gradient(circle, #28313D, #28313D);
+  }
+  
+  #obj-info .obj-content{
+    float: left;
+    width: 30%;
+    height: 85%;
+    text-align: left;
+    overflow: hidden;
+    padding:  0px 3px;
+     padding-top: 70px;
+      
+  
+  }
+  #obj-info .obj-content h5{
+    text-align: left;
+    padding-left: 10px;
+    
+  }
+  #obj-info .obj-content1{
+    float: center;
+    width: 40%;
+    height: 90%;
+    text-align: left;
+    overflow: hidden;
+    padding:  40px 0px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  #obj-info .obj-content1 h2{
+    text-align: center;
+  }
+  #obj-info .obj-content p{
+    padding-bottom: 30px;
+    color: #ffffff;
+  }
+  #obj-info .obj-content1 p{
+    padding-bottom: 30px;
+    color: #ffffff;
+  }
+  #obj-info .obj-content1 img{
+      width: 340px;
+      height: 220px;
+  }
+  #obj-info .obj-content2{
+    float: left;
+    width: 30%;
+    height: 85%;
+    text-align: justify;
+    overflow: auto;
+    padding:  20px 70px;
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    
+  }
+  #obj-info .obj-content2 h5{
+    text-align: left;
+  }
+  #obj-info .obj-content2 p{
+    padding-top: 20px;
+    color: #ffffff;
+  }
+  #obj-info .obj-content2 span{
+    color: #34a32a;
+  }
+  #obj-info .obj-content span{
+    color: #34a32a;
+  }
+  #obj-info ul{
+    padding-top: 10px;
+    list-style: none;
+    line-height: 30px;
+  
+  }
+  #obj-info li::before{
+    content: "›" ;
+    margin-right:8px;
+    margin: 10px;
+    
+  }
+  .imagenescarrusel img{
+    width: 65%;
+    height: 100%;
+  }
+
+  #piepagina footer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+
+
+
+
+  @media (min-width:480px) {
+    #obj-info .obj-content1 img{
+        width: 185px;
+        height: 120px;
+    }
+    #obj-info .obj-content a{
+        font-size: 12px;
+    }
+  }
+  
+  @media (min-width:768px){
+    #obj-info .obj-content1 img{
+        width: 280px;
+        height: 200px;
+    }
+    #obj-info .obj-content h5{
+        font-size: 17px;
+    }
+    #obj-info .obj-content a{
+        font-size: 12px;
+    }
+  }
+  
+  @media (min-width:1024px){
+    #obj-info .obj-content1 img{
+        width: 315px;
+        height: 200px;
+    }
+    #obj-info .obj-content h5{
+        font-size: 23px;
+    }
+    #obj-info .obj-content a{
+        font-size: 15px;
+    }
+  }

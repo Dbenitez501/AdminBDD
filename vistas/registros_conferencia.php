@@ -21,6 +21,7 @@ $pre = new Presencial();
     <link rel="stylesheet" href="../css/registro_sesion.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/registro.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/tabla.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/encabezado.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
 
@@ -59,22 +60,67 @@ $pre = new Presencial();
             <th>Id</th>
             <th class="nom">Nombre</th>
             <th class="tipo">Tipo</th>
-            <th class="Conferencia">Conferencia</th>
+            <th>No.Conferencia</th>
             <th class="Fecha">Fecha</th>
-            <th class="Código">Código de Asistencia</th>
+            <th class="Conferencia">Correo</th>
             <th class="Reconocimiento">Aplica Reconocimiento</th>
-            
           </tr>           
+          <tr>
+          <td>1</td>
+              <td>Carlos de la Garza Herrera</td>
+              <td>Alumno</td>
+              <td>2</td>
+              <td>2020-07-23</td>
+              <td>carlos19092@gmail.com</td>
+              <td>No</td>
+          </tr>
+          <td>2</td>
+              <td>Ing.Pedro Del Angel</td>
+              <td>Docente</td>
+              <td>1</td>
+              <td>2020-07-23</td>
+              <td>pedro_09@hotmail.com</td>
+              <td>Si</td>
+          </tr>
         </table>
       </div>
 
-      <footer id="redes">
-        <div class="contenedor">
-          <div class="sociales">
-            <img align="right" src="../ima/Logos.png">
-          </div>
+      <footer id="piepagina">
+      <section id="obj-info" class="bg-dark">
+        <div class="obj-content">
+        <h5><span>| A</span>cerca de nosotros</h5>
+        <ul>
+            <li><a><i class="fas fa-phone-alt"></i>(52)8183294020</a></li>
+            <li><a><i class="fas fa-envelope"></i></li>
+            <a>abiamalberto.19@gmail.com</a>
+            <br>
+            <a>diegobenitez@live.com.mx</a>
+            <br>
+            <a>luznevg@gmail.com</a>
+            <br>
+            <a>ivan98fer@gmail.com</a>
+            <br>
+            <a>fridaantonio092@gmail.com</a>
+            <br>
+            <li><a href="https://www.uanl.mx/enlinea/"><i class="fas fa-desktop"></i>   Servicios en línea </a></li>
+        </ul>
         </div>
-      </footer>
+        <div class="obj-content">
+            <h5><span>| R</span>edes Sociales</h5>
+            <ul>
+              <li><a href="https://www.facebook.com/fime.oficial/">Facebook</a></li>
+              <li><a href="https://www.instagram.com/fime.oficial/?hl=es-la">Instagram</a></li>
+              <li><a href="https://twitter.com/fime_oficial?lang=es">Twitter</a></li>
+              <li><a href="https://www.youtube.com/channel/UCfmQiSfgZ5cMDe-kAYplmww/featured">Youtube</a></li>
+
+        </div>
+        <div class="obj-content1">
+  <ul>
+    <a><img src="../ima/Logos.png" alt="LogoUANL" > </a>
+  </ul>
+</div>
+      </section>
+</footer>
 
     </main>
   </body>
