@@ -49,6 +49,7 @@
             <th>Id</th>
             <th>Nombre</th>
             <th>Email</th>
+            
             <th>Teléfono</th>
             <th>Sexo</th>
             <th><a href="nuevo_admin.php"><input type="submit" value="Nuevo" class="boton_nuevo"></a></th>
