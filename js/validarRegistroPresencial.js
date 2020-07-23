@@ -11,7 +11,7 @@ function validar()
     codigo_as = document.getElementById("codigo_as").value;
 
     expresionHora = /\d+\d+:+\d+\d/;
-    expresionFecha = /\d+\d+\d+\d+\/+\d+\d+\/+\d+\d/;
+    expresionFecha = /\d+\d+\d+\d+\-+\d+\d+\-+\d+\d/;
 
     if(titulo === "" || desc === "" || expositor === "" || fecha === "" || hora === "" || lugar === "escoge" || codigo_as === "") {
         alert("Todos los campos son obligatorios");

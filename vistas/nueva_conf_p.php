@@ -72,7 +72,7 @@ $db = new DB();
             <input type="text" name="titulo" id="titulo" placeholder="...">
             <br>
             <h3 for="descripcion">Descripción</h3>
-            <input type="text" name="descripcion" id="descripcion" placeholder="descripción">
+            <textarea type="text" name="descripcion" id="descripcion" placeholder="descripción"></textarea>
             <br>
             <h3 for="expositor">Expositor</h3>
             <input type="text" name="expositor" id="expositor" placeholder="Nombre">

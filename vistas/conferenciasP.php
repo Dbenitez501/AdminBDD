@@ -3,6 +3,15 @@ include_once '../include/db.php';
 include_once '../include/presencial.php';
 $db = new DB();
 $pre = new Presencial();
+
+//PARA ELIMINAR REGISTRO
+if(isset($_GET['del'])) {
+  $id_del = $_GET['del'];
+  $queryDel = $db->connect()->prepare("DELETE FROM presencial WHERE id_presencial = :id_del");
+  $queryDel->execute(['id_del'=>$id_del]);
+  header("location: conferenciasP.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -73,19 +82,20 @@ $pre = new Presencial();
 
           if($query->rowCount()) {
             while ($data = $query->fetch(PDO::FETCH_ASSOC)) {
+              $id = $data['id_presencial'];
           ?>
           <tr>            
-            <td><?php echo $data["id_presencial"];?></td>
+            <td><?php echo $id;?></td>
             <td><?php echo $data["titulo"];?></td>
             <td class="desc"><?php echo $data["descripcion"];?></td>
             <td><?php echo $data["expositor"];?></td>
             <td><?php echo $data["fecha_inicio"];?></td>
             <td><?php echo $data["hora_inicio"];?></td>
-            <td><?php echo $pre->getUbicacionTabla($data["titulo"]) . ", " . $pre->getNombreLugarTabla($data["titulo"]);?></td>
+            <td><?php echo $pre->getUbicacionTabla($id) . ", " . $pre->getNombreLugarTabla($id);?></td>
             <td><?php echo $data["codigo_asistencia"];?></td>
             <td><?php echo $pre->getEstado($data['estado']);?></td>
                        
-            <td align="center"><a href="mod_conf_p.php"><input type="submit" value="Modificar" class="boton_mod"></a><input type="submit" value="Eliminar" class="boton_elim"></td>
+            <td align="center"><a href='mod_conf_p.php?id=<?php echo $id?>'><input type="submit" value="Modificar" class="boton_mod"></a><a href='#' onclick="preguntar(<?php echo $id?>)"><input type="submit" value="Eliminar" id="btnEliminar" class="boton_elim"></a></td>
             
           </tr> 
           <?php
@@ -104,5 +114,14 @@ $pre = new Presencial();
       </footer>
 
     </main>
+
+    <script type="text/javascript">
+      function preguntar(id) {
+        if(confirm('¿Seguro que quieres eliminar?')) {
+          window.location.href = "conferenciasP.php?del="+id;
+        }
+      }
+    </script>
+
   </body>
 </html>

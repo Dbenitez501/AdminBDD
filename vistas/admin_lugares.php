@@ -47,7 +47,7 @@
       </section>
 
       <div id="tabla_conf" align="center">
-        <table class="tabla_conferencia">
+        <table class="tabla_lugares">
           <tr>
             <th>#</th>
             <th class="titulo">Nombre</th>

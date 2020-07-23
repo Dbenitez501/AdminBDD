@@ -1,6 +1,13 @@
 <?php
 include_once '../include/db.php';
+include_once '../include/consultaPresencial.php';
+include_once '../include/presencial.php';
 $db = new DB();
+$presencial = new Presencial();
+$cons = new ConsultaPre();
+
+$consulta = $cons->consultarPre($_GET['id']);
+
 ?>
 
 <!DOCTYPE html>
@@ -54,8 +61,9 @@ $db = new DB();
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarCPresencial.php" target="" method="POST" name="formRegConfPresencial" onsubmit="return validar();">
+          <form action="../include/modificarPresencial.php" target="" method="POST" name="modPresencial" onsubmit="return validar();">
             <?php
+            $est;
             $queryCB = $db->connect()->prepare("SELECT * FROM lugar_expo");
             $queryCB->execute();
             $arrayList = $queryCB->fetchAll(PDO::FETCH_ASSOC);
@@ -69,37 +77,45 @@ $db = new DB();
               <hr>
             </section>
 
-            <h3 for="titulo">Titulo</h3>
-            <input type="text" name="titulo" id="titulo" placeholder="...">
+            <input type="hidden" name="id" id="id" value="<?php echo $_GET['id'];?>">
+            
+            <h3 for="titulo">Titulo</h3>            
+            <input type="text" name="titulo" id="titulo" value="<?php echo $consulta[0];?>" placeholder="...">
             <br>
             <h3 for="descripcion">Descripción</h3>
-            <input type="text" name="descripcion" id="descripcion" placeholder="descripción">
+            <textarea type="text" name="descripcion" id="descripcion" " placeholder="descripción"><?php echo $consulta[1];?></textarea>
             <br>
             <h3 for="expositor">Expositor</h3>
-            <input type="text" name="expositor" id="expositor" placeholder="Nombre">
+            <input type="text" name="expositor" id="expositor" value="<?php echo $consulta[2];?>" placeholder="Nombre">
             <br>
             <h3 for="fecha">Fecha</h3>
-            <input type="text" name="fecha" id="fecha" class="tcal" placeholder="año/mes/día (Seleccionar)">
+            <input type="text" name="fecha" id="fecha" class="tcal" value="<?php echo $consulta[3];?>" placeholder="año/mes/día (Seleccionar)">
             <br>
             <h3 for="hora">Hora</h3>
-            <input type ="text" name="hora" id="hora" placeholder="24h">
+            <input type ="text" name="hora" id="hora" value="<?php echo $consulta[4];?>" placeholder="24h">
             <br>
             <h3 for="lugar">Lugar</h3>
             <select name="lugar" id="lugar">
-              <option value="escoge">--Escoge lugar--</option>
+              <option value="<?php echo $consulta[6];?>"><?php echo $presencial->getUbicacionTabla($consulta[6]) . ", " . $presencial->getNombreByID($consulta[6]);?></option>
               <?php 
               foreach($arrayList as $nombre) {
               ?>
-              <option value="<?php echo $nombre['id_lugar'];?>"><?php echo $nombre['nombre'];?></option>
+              <option value="<?php echo $nombre['id_lugar'];?>"><?php echo $nombre['ubicacion'] . ", " . $nombre['nombre'];?></option>
               <?php
               }
               ?>
             </select>
             <br>
             <h3 for="codigo_as">Código de asistencia</h3>
-            <input type ="text" name="codigo_as" id="codigo_as">
+            <input type ="text" name="codigo_as" id="codigo_as" value="<?php echo $consulta[7];?>">
             <br>
-            
+            <h3 for="estado">Estado</h3>
+            <input type="radio" name="estado" value="1" id="estado" <?php if($consulta[5] == "1") echo "checked"; ?>>
+            <label for="1">Activado</label>		
+            <input type="radio" name="estado" value="0" id="estado" <?php if($consulta[5] == "0") echo "checked"; ?>>
+            <label for="0">Desactivado</label>
+            <br>
+            <br>            
             <input type="submit" name="registrar_conf_p"  value="Modificar">
 
           </form>

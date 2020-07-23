@@ -39,10 +39,13 @@ $virtual = new Virtual();
         ?>
         <a href="https://www.fime.uanl.mx/">FIME</a>
         <?php
+        if(isset($_SESSION['user'])) {          
+          echo "<a href='controlador_asistencia.php'>Mis Conferencias</a>";
+        }
         
-          if(isset($_SESSION['user'])) {
-            echo "<a href='include/logout.php'>Cerrar Sesión</a>";
-          }
+        if(isset($_SESSION['user'])) {
+          echo "<a href='include/logout.php'>Cerrar Sesión</a>";
+        }
         
         ?>
       </nav>

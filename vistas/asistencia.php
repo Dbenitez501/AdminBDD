@@ -31,6 +31,8 @@
       <nav class="menu">
         <a href="../controlador.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
+        <a href="../controlador_asistencia.php">Mis Conferencias</a>
+        <a href="../include/logout.php">Cerrar Sesión</a>
       </nav>
     </div>
     </header>
