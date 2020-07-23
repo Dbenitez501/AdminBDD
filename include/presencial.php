@@ -26,10 +26,10 @@ class Presencial extends DB
     }
 
     //CONSULTA PARA MOSTRAR UBICAICON DE LUGAR EN TABLA DE ADMIN
-    public function getUbicacionTabla($titulo)
+    public function getUbicacionTabla($id)
     {
-        $query = $this->connect()->prepare('SELECT ubicacion FROM lugar_expo INNER JOIN presencial ON lugar_expo.id_lugar = presencial.id_lugar WHERE presencial.titulo = :titulo');
-        $query->execute(['titulo' => $titulo]);
+        $query = $this->connect()->prepare('SELECT ubicacion FROM lugar_expo INNER JOIN presencial ON lugar_expo.id_lugar = presencial.id_lugar WHERE presencial.id_presencial = :id');
+        $query->execute(['id' => $id]);
 
         foreach($query as $ubicacion) {
             return $ubicacion['ubicacion'];
@@ -37,10 +37,10 @@ class Presencial extends DB
     }
 
     //CONSULTA PARA MOSTRAR NOMBRE DE LUGAR EN TABLA DE ADMIN
-    public function getNombreLugarTabla($titulo)
+    public function getNombreLugarTabla($id)
     {
-        $query = $this->connect()->prepare('SELECT nombre FROM lugar_expo INNER JOIN presencial ON lugar_expo.id_lugar = presencial.id_lugar WHERE presencial.titulo = :titulo');
-        $query->execute(['titulo' => $titulo]);
+        $query = $this->connect()->prepare('SELECT nombre FROM lugar_expo INNER JOIN presencial ON lugar_expo.id_lugar = presencial.id_lugar WHERE presencial.id_presencial = :id');
+        $query->execute(['id' => $id]);
 
         foreach($query as $nombre) {
             return $nombre['nombre'];
@@ -56,6 +56,17 @@ class Presencial extends DB
         } else {
             $est = "Desactivado";
             return $est;
+        }
+    }
+
+    //CONSULTA PARA OBTENER NOMBRE DE LUGAR POR ID
+    public function getNombreByID($id)
+    {
+        $query = $this->connect()->prepare('SELECT nombre FROM lugar_expo INNER JOIN presencial ON lugar_expo.id_lugar = presencial.id_lugar WHERE presencial.id_presencial = :id');
+        $query->execute(['id' => $id]);
+
+        foreach($query as $nombre) {
+            return $nombre['nombre'];
         }
     }
 }
