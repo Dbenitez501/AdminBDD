@@ -17,6 +17,14 @@
   width: 90%;
 }
 
+#tabla_conf table.tabla_lugares{
+  width: 65%;
+}
+
+#tabla_reg table.tabla_lugares{
+  width: 65%;
+}
+
 #tabla_conf table,th,td{
   border: 2px solid black;
   border-collapse: collapse;
