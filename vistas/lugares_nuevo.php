@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
 
     <script type="text/javascript" src="../js/tcal.js"></script>
-    <script src="../js/validarRegistroVirtual.js"></script>
+    <script src="../js/validarLugar.js"></script>
 
   </head>
   <body>
@@ -50,7 +50,7 @@
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarCVirtual.php" target="" method="POST" name="formRegConfVirtual" onsubmit="return validar();">
+          <form action="../include/registrarLugar.php" target="" method="POST" name="formRegLugar" onsubmit="return validar();">
 
             <section id="Inicio_sesion">
               <h2>Nuevo lugar de exposición</h2>
@@ -60,13 +60,13 @@
             </section>
 
             <h3 for="nombre">Nombre</h3>
-            <input type="text" name="nombre" id="nombre" placeholder="....." required>
+            <input type="text" name="nombre" id="nombre" placeholder=".....">
             <br>
             <h3 for="cap_max">Capacidad Máxima</h3>
-            <input type="text" name="cap_max" id="cap_max" placeholder="###" required>
+            <input type="text" name="cap_max" id="cap_max" placeholder="###">
             <br>
             <h3 for="ubicacion">Ubicación</h3>
-            <input type="text" name="ubicacion" id="ubicacion" placeholder="(Edificio 2,CIDET, etc..)" required>
+            <input type="text" name="ubicacion" id="ubicacion" placeholder="(Edificio 2,CIDET, etc..)">
             <br>
             <h3 for="desc">Descripción</h3>
             <br>

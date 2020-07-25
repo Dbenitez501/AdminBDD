@@ -65,18 +65,18 @@ $db = new DB();
             </section>
 
             <h3 for="nombre">Nombre</h3>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo" required>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo">
             <br>
-            <h3 for="matricula">Matricula</h3>
-            <input type="text" name="matricula" id="matricula" placeholder="###" required>
+            <h3 for="matricula">Matrícula</h3>
+            <input type="text" name="matricula" id="matricula" placeholder="###">
             <br>
             <h3 for="carrera">Carrera</h3>
-            <input type="text" name="carrera" id="carrera" placeholder="(IAS,ITS,IME,IMA..)" required>
+            <input type="text" name="carrera" id="carrera" placeholder="(IAS,ITS,IME,IMA..)">
             <br>
             <h3 for="email">Email</h3>
-            <input type="email" name="email" id="email" placeholder="@" required>
+            <input type="email" name="email" id="email" placeholder="@">
             <br>
-            <h3 for="telefono">Telefono</h3>
+            <h3 for="telefono">Teléfono</h3>
             <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)">
             <br>
             <h3 for="sexo">Sexo</h3>
@@ -86,10 +86,10 @@ $db = new DB();
             <label for="M">Mujer</label>
             <br>
             <h3 for="username">Username</h3>
-            <input type ="text" name="username" id="username" placeholder="Username" required>
+            <input type ="text" name="username" id="username" placeholder="Username">
             <br>
             <h3 for="contra">Contraseña</h3>
-            <input type ="password" name="contra" id="contra" placeholder="*****" required>
+            <input type ="password" name="contra" id="contra" placeholder="*****">
             
             <input type="submit" name="enviar_alumno"  value="Registrar">
 

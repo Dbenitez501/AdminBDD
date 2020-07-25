@@ -1,3 +1,15 @@
+<?php
+include_once '../include/db.php';
+include_once '../include/consultaVirtual.php';
+include_once '../include/virtual.php';
+$db = new DB();
+$virtual = new Virtual();
+$cons = new ConsultaVir();
+
+$consulta = $cons->consultarVir($_GET['id']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -50,41 +62,50 @@
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarCVirtual.php" target="" method="POST" name="formRegConfVirtual" onsubmit="return validar();">
-
+          <form action="../include/modificarVirtual.php" target="" method="POST" name="modVirtual" onsubmit="return validar();">
+          
             <section id="Inicio_sesion">
-              <h2>Conferencia Virtual</h2>
+              <h2>Modificar Conferencia Virtual</h2>
             </section>
             <section id="blog">
               <hr>
             </section>
 
+            <input type="hidden" name="id" id="id" value="<?php echo $_GET['id'];?>">
             <h3 for="titulo">Titulo</h3>
-            <input type="text" name="titulo" id="titulo" placeholder="..." required>
+            <input type="text" name="titulo" id="titulo" value="<?php echo $consulta[0];?>" placeholder="..." required>
             <br>
             <h3 for="descripcion">Descripción</h3>
-            <input type="text" name="descripcion" id="descripcion" placeholder="descripción" required>
+            <textarea type="text" name="descripcion" id="descripcion" placeholder="descripción" required><?php echo $consulta[1];?></textarea>
             <br>
             <h3 for="expositor">Expositor</h3>
-            <input type="text" name="expositor" id="expositor" placeholder="Nombre" required>
+            <input type="text" name="expositor" id="expositor" value="<?php echo $consulta[2];?>" placeholder="Nombre" required>
             <br>
             <h3 for="fecha">Fecha</h3>
-            <input type="text" name="fecha" id="fecha" class="tcal" placeholder="año/mes/día (Seleccionar)">
+            <input type="text" name="fecha" id="fecha" class="tcal" value="<?php echo $consulta[3];?>" placeholder="año/mes/día (Seleccionar)">
             <br>
             <h3 for="hora">Hora</h3>
-            <input type ="text" name="hora" id="hora" placeholder="24h">
+            <input type ="text" name="hora" id="hora" value="<?php echo $consulta[4];?>" placeholder="24h">
             <br>
             <h3 for="plataforma">Plataforma</h3>
-            <input type ="text" name="plataforma" id="plataforma" placeholder="(MsTeams,Zoom..)" required>
+            <input type ="text" name="plataforma" id="plataforma" value="<?php echo $consulta[5];?>" placeholder="(MsTeams,Zoom..)" required>
             <br>
             <h3 for="codigo_plat">Código Plataforma</h3>
-            <input type ="text" name="codigo_plat" id="codigo_plat" placeholder="">
+            <input type ="text" name="codigo_plat" id="codigo_plat" value="<?php echo $consulta[6];?>" placeholder="">
             <br>
             <h3 for="codigo_as">Código de asistencia</h3>
-            <input type ="text" name="codigo_as" id="codigo_as" required>
+            <input type ="text" name="codigo_as" id="codigo_as" value="<?php echo $consulta[7];?>" required>
             <br>
             <h3 for="cap_max">Capacidad Máxima </h3>
-            <input type ="text" name="cap_max" id="cap_max" placeholder="###" required>
+            <input type ="text" name="cap_max" id="cap_max" value="<?php echo $consulta[8];?>" placeholder="###" required>
+            <br>
+            <h3 for="estado">Estado</h3>
+            <input type="radio" name="estado" value="1" id="estado" <?php if($consulta[9] == "1") echo "checked"; ?>>
+            <label for="1">Activado</label>		
+            <input type="radio" name="estado" value="0" id="estado" <?php if($consulta[9] == "0") echo "checked"; ?>>
+            <label for="0">Desactivado</label>
+            <br>
+            <br> 
             
             <input type="submit" name="registrar_conf_v"  value="Modificar">
 

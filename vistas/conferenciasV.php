@@ -1,8 +1,16 @@
 <?php
 include_once '../include/db.php';
-include_once '../include/presencial.php';
+include_once '../include/virtual.php';
 $db = new DB();
-$pre = new Presencial();
+$virtual = new Virtual();
+
+//PARA ELIMINAR REGISTRO
+if(isset($_GET['del'])) {
+  $id_del = $_GET['del'];
+  $queryDel = $db->connect()->prepare("DELETE FROM virtual WHERE id_virtual = :id_del");
+  $queryDel->execute(['id_del'=>$id_del]);
+  header("location: conferenciasV.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -67,25 +75,33 @@ $pre = new Presencial();
             <th>Código Plataforma</th>
             <th>Asistencia</th>
             <th>Estado</th>
-            <th><a href="nueva_conf_p.php"><input type="submit" value="Nuevo" class="boton_nuevo"></a></th>
+            <th><a href="nueva_conf_v.php"><input type="submit" value="Nuevo" class="boton_nuevo"></a></th>
           </tr>
+          <?php
+          $query = $db->connect()->prepare("SELECT * FROM virtual");
+          $query->execute();
+
+          if($query->rowCount()) {
+            while ($data = $query->fetch(PDO::FETCH_ASSOC)) {
+              $id = $data['id_virtual'];
+          ?>
           <tr>
-              <td>1</td>
-              <td>Tecnología de la información</td>
-              <td>Tecnología de la información refiere al uso de equipos de telecomunicaciones y computadoras
-                (ordenadores) para la transmisión, el procesamiento y el almacenamiento de datos. </td>
-              <td>Ing. Juan Carlos de la Puente</td>
-              <td>2020-07-23</td>
-              <td>15:00</td>
-              <td>MsTeams</td>
-              <td>HS2819</td>
-              <td>HSU210</td>
-              <td>Activado</td>
-            
-          <td align="center"><a href="mod_conf_v.php"><input type="submit" value="Modificar" class="boton_mod"></a><input type="submit" value="Eliminar" class="boton_elim"></td>
-          
-        
-        </tr>        
+              <td><?php echo $id?></td>
+              <td><?php echo $data['titulo'];?></td>
+              <td><?php echo $data['descripcion'];?></td>
+              <td><?php echo $data['expositor'];?></td>
+              <td><?php echo $data['fecha_inicio'];?></td>
+              <td><?php echo $data['hora_inicio'];?></td>
+              <td><?php echo $data['plataforma'];?></td>
+              <td><?php echo $data['codigo_plat'];?></td>
+              <td><?php echo $data['codigo_asistencia'];?></td>
+              <td><?php echo $virtual->getEstado($data['estado']);?></td>        
+              <td align="center"><a href="mod_conf_v.php?id=<?php echo $id?>"><input type="submit" value="Modificar" class="boton_mod"></a><a href='#' onclick="preguntar(<?php echo $id?>)"><input type="submit" value="Eliminar" id="btnEliminar" class="boton_elim"></a></td>        
+          </tr>
+          <?php
+              }
+            }
+            ?>         
         </table>
       </div>
 
@@ -127,5 +143,12 @@ $pre = new Presencial();
 </footer>
 
     </main>
+    <script type="text/javascript">
+      function preguntar(id) {
+        if(confirm('¿Seguro que quieres eliminar?')) {
+          window.location.href = "conferenciasV.php?del="+id;
+        }
+      }
+    </script>
   </body>
 </html>

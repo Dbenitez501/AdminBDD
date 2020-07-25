@@ -1,3 +1,15 @@
+<?php
+include_once '../include/db.php';
+$db = new DB();
+
+//PARA ELIMINAR REGISTRO
+if(isset($_GET['del'])) {
+  $id_del = $_GET['del'];
+  $queryDel = $db->connect()->prepare("DELETE FROM lugar_expo WHERE id_lugar = :id_del");
+  $queryDel->execute(['id_del'=>$id_del]);
+  header("location: admin_lugares.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -54,15 +66,29 @@
             <th class="titulo">Nombre</th>
             <th class="desc">Ubicación</th>
             <th>Capacidad</th>
+            <th>Descripción</th>
             <th><a href="lugares_nuevo.php"><input type="submit" value="Nuevo" class="boton_nuevo"></a></th>
           </tr>
+          <?php
+          $query = $db->connect()->prepare("SELECT * FROM lugar_expo");
+          $query->execute();
+
+          if($query->rowCount()) {
+            while ($data = $query->fetch(PDO::FETCH_ASSOC)) {
+              $id = $data['id_lugar'];
+          ?>
           <tr>
-            <td>1</td>
-            <td>CIDET</td>
-            <td class="desc">Ubicación 1</td>
-            <td>100</td>
-            <td align="center"><input type="submit" value="Modificar" class="boton_mod"><input type="submit" value="Eliminar" class="boton_elim"></td>
-          </tr>                
+            <td><?php echo $id;?></td>
+            <td><?php echo $data['nombre'];?></td>
+            <td class="desc"><?php echo $data['ubicacion'];?></td>
+            <td><?php echo $data['capacidad_max'];?></td>
+            <td><?php echo $data['descripcion'];?></td>
+            <td align="center"><a href="mod_conf_l.php?id=<?php echo $id?>"><input type="submit" value="Modificar" class="boton_mod"></a><a href='#' onclick="preguntar(<?php echo $id?>)"><input type="submit" value="Eliminar" id="btnEliminar" class="boton_elim"></a></td>
+          </tr>
+          <?php
+              }
+            }
+            ?>                 
         </table>
       </div>
 
@@ -104,5 +130,12 @@
 </footer>
 
     </main>
+    <script type="text/javascript">
+      function preguntar(id) {
+        if(confirm('¿Seguro que quieres eliminar?')) {
+          window.location.href = "admin_lugares.php?del="+id;
+        }
+      }
+    </script>
   </body>
 </html>
