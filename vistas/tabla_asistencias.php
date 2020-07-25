@@ -54,7 +54,7 @@ if(isset($_SESSION['user'])) {
           echo "<a href='tabla_asistencias.php'>Mis Conferencias</a>";
         }
         ?>
-        <a href="nosotros.php">Acerca de nosotros</a>
+        <a href="nosotros.php">Acerca</a>
         <?php
         if(isset($_SESSION['user'])) {
           echo "<a href='../include/logout.php'>Cerrar Sesión</a>";
