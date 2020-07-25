@@ -1,8 +1,6 @@
 <?php
 include_once '../include/db.php';
-include_once '../include/presencial.php';
 $db = new DB();
-$pre = new Presencial();
 ?>
 
 <!DOCTYPE html>
@@ -61,27 +59,44 @@ $pre = new Presencial();
             <th class="nom">Nombre</th>
             <th class="tipo">Tipo</th>
             <th>No.Conferencia</th>
-            <th class="Fecha">Fecha</th>
             <th class="Conferencia">Correo</th>
             <th class="Reconocimiento">Aplica Reconocimiento</th>
-          </tr>           
+          </tr>
+          <?php
+          $query = $db->connect()->prepare("SELECT * FROM asistencia_registro");
+          $query->execute();
+          if($query->rowCount()) {
+            while ($data = $query->fetch(PDO::FETCH_ASSOC)) {
+              $idUsu = $data["id_usuario"];
+          ?>           
           <tr>
-          <td>1</td>
-              <td>Carlos de la Garza Herrera</td>
-              <td>Alumno</td>
-              <td>2</td>
-              <td>2020-07-23</td>
-              <td>carlos19092@gmail.com</td>
-              <td>No</td>
+            <td><?php echo $idUsu?></td>
+            <td><?php echo $data['nombre'];?></td>
+            <td><?php echo $data['tipo'];?></td>
+            <td><?php echo $data['cant_conf'];?></td>
+            <td><?php echo $data['correo'];?></td>
+            <td>
+            <?php 
+            if($data['tipo'] == "Estudiante" || $data['tipo'] == "Externo") {
+              if($data['cant_conf']>=3) {
+                echo "Si";
+              } else {
+                echo "No";
+              }
+            } elseif ($data['tipo'] == "Docente") {
+              if($data['cant_conf']>=1) {
+                echo "Si";
+              } else {
+                echo "No";
+              }
+            }
+            ?>
+            </td>
           </tr>
-          <td>2</td>
-              <td>Ing.Pedro Del Angel</td>
-              <td>Docente</td>
-              <td>1</td>
-              <td>2020-07-23</td>
-              <td>pedro_09@hotmail.com</td>
-              <td>Si</td>
-          </tr>
+          <?php
+            }
+          }
+          ?>
         </table>
       </div>
 

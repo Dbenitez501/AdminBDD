@@ -42,7 +42,7 @@ $virtual = new Virtual();
         <a href="https://www.fime.uanl.mx/">FIME</a>
         <?php
         if(isset($_SESSION['user'])) {          
-          echo "<a href='controlador_asistencia.php'>Mis Conferencias</a>";
+          echo "<a href='vistas/tabla_asistencias.php'>Mis Conferencias</a>";
         }
         
         if(isset($_SESSION['user'])) {
@@ -91,7 +91,8 @@ $virtual = new Virtual();
         $queryPresencial->execute();
         
         if($queryVirtual->rowCount()) {
-          while ($dataV = $queryVirtual->fetch(PDO::FETCH_ASSOC)) { 
+          while ($dataV = $queryVirtual->fetch(PDO::FETCH_ASSOC)) {
+            $idV = $dataV["id_virtual"]; 
       ?>
         
         <div class="contenedor_2">
@@ -110,8 +111,8 @@ $virtual = new Virtual();
               <br>
               <p>Hora: <?php echo $dataV["hora_inicio"]; ?></p>
               <br>
-              <p>Plataforma: <?php echo $virtual->getPlataforma($dataV["titulo"]);?></p>
-              <a href="#"><input  class="boton_inscribir"  type="submit" value="Inscribir" class="#"></a>           
+              <p>Plataforma: <?php echo $virtual->getPlataforma($idV);?></p>
+              <a href="controlador_inscribirV.php?id=<?php echo $idV?>"><input type="submit" value="Inscribir" class="boton_inscribir"></a>          
             
           </div>
 
@@ -120,6 +121,7 @@ $virtual = new Virtual();
         } 
         if($queryPresencial->rowCount()) {
           while($dataP = $queryPresencial->fetch(PDO::FETCH_ASSOC)) {
+            $idP = $dataP['id_presencial'];
       ?>
         <div class="contenedor_2">
           <div class="tarjetas">
@@ -137,8 +139,8 @@ $virtual = new Virtual();
               <br>
               <p>Hora: <?php echo $dataP["hora_inicio"]; ?></p>
               <br>
-              <p>Lugar: <?php echo $presencial->getNombreLugar($dataP["titulo"]) . ", " .  $presencial->getUbicacion($dataP["titulo"]); ?></p>
-              <a href="#"><input  class="boton_inscribir"  type="submit" value="Inscribir" class="#"></a>           
+              <p>Lugar: <?php echo $presencial->getNombreLugarTabla($idP) . ", " .  $presencial->getUbicacionTabla($idP); ?></p>
+              <a href="controlador_inscribirP.php?id=<?php echo $idP?>"><input type="submit" value="Inscribir" class="boton_inscribir"></a>          
             
           </div>
       <?php

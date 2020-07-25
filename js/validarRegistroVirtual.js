@@ -13,7 +13,7 @@ function validar()
     capacidad_max = document.getElementById("cap_max").value;
     
     expresionHora = /\d+\d+:+\d+\d/;
-    expresionFecha = /\d+\d+\d+\d+\/+\d+\d+\/+\d+\d/;
+    expresionFecha = /\d+\d+\d+\d+\-+\d+\d+\-+\d+\d/;
 
     if(titulo === "" || desc === "" || expositor === "" || fecha === "" || hora === "" || plataforma === "" || codigo_plat === "" || codigo_as === "" || capacidad_max === "") {
         alert("Todos los campos son obligatorios");

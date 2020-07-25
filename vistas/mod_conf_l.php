@@ -1,3 +1,13 @@
+<?php
+include_once '../include/db.php';
+include_once '../include/consultaLugar.php';
+$db = new DB();
+$cons = new ConsultaLugar();
+
+$consulta = $cons->consultarLugar($_GET['id']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,10 +24,13 @@
     <link rel="stylesheet" href="../css/registro_sesion.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/registro.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/encabezado.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" type="text/css" href="../css/tcal.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />    
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
-    <script src="../js/validarAdmin.js"></script>    
-    
+
+    <script type="text/javascript" src="../js/tcal.js"></script>
+    <script src="../js/validarLugar.js"></script>
+
   </head>
   <body>
     <!--encabezado-->
@@ -34,10 +47,11 @@
     </header>
     <!--encabezado-->
 
+
     <main>
       <section id="banner">
         <img src="../ima/fime.jpg">
-        <div class="contenedor">
+        <div class="contenedor_admin">
           <h2>Administración</h2>
           <p>Panel para administradores</p>
         </div>
@@ -46,43 +60,34 @@
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarAdmin.php" target="" method="POST" name="formAdmin" onsubmit="return validar();">
-          <?php
-          $sexo = "";
-          ?>
+          <form action="../include/modificarLugar.php" target="" method="POST" name="formRegLugar" onsubmit="return validar();">
 
             <section id="Inicio_sesion">
-                <h2>Nuevo Administrador</h2>
-              </section>
+              <h2>Modificar lugar de exposición</h2>
+            </section>
             <section id="blog">
-                <hr>
+              <hr>
             </section>
 
+            <input type="hidden" name="id" id="id" value="<?php echo $_GET['id'];?>">
             <h3 for="nombre">Nombre</h3>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo" required>
+            <input type="text" name="nombre" id="nombre" value="<?php echo $consulta[0];?>" placeholder=".....">
             <br>
-            <h3 for="email">Email</h3>
-            <input type="email" name="email" id="email" placeholder="@" required>
+            <h3 for="cap_max">Capacidad Máxima</h3>
+            <input type="text" name="cap_max" id="cap_max" value="<?php echo $consulta[2];?>" placeholder="###">
             <br>
-            <h3 for="telefono">Telefono</h3>
-            <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)">
+            <h3 for="ubicacion">Ubicación</h3>
+            <input type="text" name="ubicacion" id="ubicacion" value="<?php echo $consulta[1];?>" placeholder="(Edificio 2,CIDET, etc..)">
             <br>
-            <h3 for="sexo">Sexo</h3>
-            <input type="radio" name="sexo" value="H" id="sexo" <?php if($sexo == "H") echo "checked"; ?>>
-            <label for="H">Masculino</label>		
-            <input type="radio" name="sexo" value="M" id="sexo" <?php if($sexo == "M") echo "checked"; ?>>
-            <label for="M">Femenino</label>
+            <h3 for="desc">Descripción</h3>
             <br>
-            <h3 for="username">Username</h3>
-            <input type ="text" name="username" id="username" placeholder="Username" required>
-            <br>
-            <h3 for="contra">Contraseña</h3>
-            <input type ="password" name="contra" id="contra" placeholder="*****" required>
-
-            <input type="submit" name="enviar_admin"  value="Registrar">
+            <textarea type="textarea" name="desc" id="desc" placeholder="....." style="font-size:20px ;margin:5px; width: 75%; height: 150px;"><?php echo $consulta[3];?></textarea>
+            
+            <input type="submit" name="modificarLugar"  value="Modificar">
 
           </form>
-        </div>      
+
+        </div>
       </section>
       <br>
       <br>

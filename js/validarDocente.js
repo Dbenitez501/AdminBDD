@@ -26,6 +26,10 @@ function validar()
         alert("El username es muy largo");
         return false;
     }
+    else if(numero_emp.length > 7) {
+        alert("El número de empleado es muy largo");
+        return false;
+    }
     else if(email.length > 100) {
         alert("El email es muy largo");
         return false;

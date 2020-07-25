@@ -1,3 +1,12 @@
+<?php
+include_once '../include/db.php';
+include_once '../include/presencial.php';
+include_once '../include/virtual.php';
+
+$db = new DB();
+$pre = new Presencial();
+$virtual = new Virtual();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -19,7 +28,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
 
     <script type="text/javascript" src="../js/tcal.js"></script>
-    <script src="../js/validarRegistroVirtual.js"></script>
+    <script src="../js/validarCodAsistencia.js"></script>
 
   </head>
   <body>
@@ -32,7 +41,7 @@
       <nav class="menu">
         <a href="../controlador.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
-        <a href="../controlador_asistencia.php">Mis Conferencias</a>
+        <a href="tabla_asistencias.php">Mis Conferencias</a>
         <a href="../include/logout.php">Cerrar Sesión</a>
       </nav>
     </div>
@@ -52,21 +61,59 @@
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarCVirtual.php" target="" method="POST" name="formRegConfVirtual" onsubmit="return validar();">
+          <form action="<?php
+          if(isset($_GET['idRegP'])) {
+            echo '../include/verificaCodPre.php';
+          } elseif (isset($_GET['idRegV'])) {
+            echo '../include/verificaCodVirtual.php';
+          }
+          ?>" target="" method="POST" name="regAsistencia" onsubmit="return validar();">
 
             <section id="Inicio_sesion">
-              <h2>Asistencia a: ####</h2>
+              <h2>Asistencia a: <?php
+              if(isset($_GET['idRegP'])) {
+                $id = $_GET['idRegP'];
+                echo $pre->getTituloConf($id);
+              } elseif (isset($_GET['idRegV'])) {
+                $id = $_GET['idRegV'];
+                echo $virtual->getTituloConf($id);
+              }
+              ?></h2>
               <br>
-              <h4>Fecha: ##/##/##</h2>
+              <h4>Fecha: <?php
+              if(isset($_GET['idRegP'])) {
+                $id = $_GET['idRegP'];
+                echo $pre->getFechaConf($id);
+              } elseif (isset($_GET['idRegV'])) {
+                $id = $_GET['idRegV'];
+                echo $virtual->getFechaConf($id);
+              }
+              ?></h2>
               <br>
-              <h4>Hora:##:##</h2>
+              <h4>Hora: <?php
+              if(isset($_GET['idRegP'])) {
+                $id = $_GET['idRegP'];
+                echo $pre->getHoraConf($id);
+              } elseif (isset($_GET['idRegV'])) {
+                $id = $_GET['idRegV'];
+                echo $virtual->getHoraConf($id);
+              }
+              ?></h2>
             </section>
             <section id="blog">
               <hr>
             </section>
-
+            <input type="hidden" name="id" id="id" value="<?php
+              if(isset($_GET['idRegP'])) {
+                $id = $_GET['idRegP'];
+                echo $id;
+              } elseif (isset($_GET['idRegV'])) {
+                $id = $_GET['idRegV'];
+                echo $id;
+              }
+              ?>">  
             <h3 for="code">Código de asistencia:</h3>
-            <input type="text" name="code" id="code" placeholder="......" required>
+            <input type="text" name="codigo" id="codigo" placeholder="......">
             <br>
             <h3 for="comentario">Comentario:</h3>
             <br>

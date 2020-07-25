@@ -4,6 +4,7 @@ include_once 'db.php';
 
 class User extends DB
 {
+    private $idUsu;
     private $nombre;
     private $username;
     private $correo;
@@ -42,6 +43,7 @@ class User extends DB
 
         foreach($query as $currentUser)
         {
+            $this->idUsu = $currentUser['id_usuario'];
             $this->nombre = $currentUser['nombre'];
             $this->username = $currentUser['username'];
             $this->correo = $currentUser['correo'];
@@ -60,6 +62,11 @@ class User extends DB
                 $this->carrera = $currentUser['carrera'];
             }
         }
+    }
+
+    public function getIdUsu()
+    {
+        return $this->idUsu;
     }
     
     public function getNombre()

@@ -1,30 +1,23 @@
-function validar() 
+function validar()
 {
-    var nombre, matricula, carrera, email, telefono, sexo, username, contra, expresion;
-    var s = false;
-    
+    var nombre, email, telefono, sexo, username, contra, expresion;
+
     nombre = document.getElementById("nombre").value;
-    matricula = document.getElementById("matricula").value;
-    carrera = document.getElementById("carrera").value;
     email = document.getElementById("email").value;
     telefono = document.getElementById("telefono").value;
-    sexo = document.formAlumno.sexo;
+    sexo = document.formAdmin.sexo;
     username = document.getElementById("username").value;
     contra = document.getElementById("contra").value;
 
     //Formato para los correos
     expresion = /\w+@+\w+\.+[a-z]/;
 
-    if(nombre === "" || matricula === "" || carrera === "" || email === "" || username === "" || contra === "") {
+    if(nombre === "" || email === "" || username === "" || contra === "") {
         alert("Todos los campos son obligatorios, excepto el Teléfono");
         return false;
     } 
     else if(nombre.length > 250) {
         alert("El nombre es muy largo");
-        return false;
-    }
-    else if(matricula.length > 6) {
-        alert("La matrícula es muy larga");
         return false;
     }
     else if(username.length > 100) {

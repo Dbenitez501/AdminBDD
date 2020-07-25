@@ -1,3 +1,16 @@
+<?php
+include_once '../include/db.php';
+$db = new DB();
+
+//PARA ELIMINAR REGISTRO
+if(isset($_GET['del'])) {
+  $id_del = $_GET['del'];
+  $queryDel = $db->connect()->prepare("DELETE FROM usuarios WHERE id_usuario = :id_del AND id_tipo=1");
+  $queryDel->execute(['id_del'=>$id_del]);
+  header("location: administradores.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -28,7 +41,7 @@
       <input type="checkbox" id="menu-bar">
       <label class="icon-menu" for="menu-bar"></label>
       <nav class="menu">
-        <a href="../index.php"> Inicio</a>
+        <a href="../controlador.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
       </nav>
     </div>
@@ -39,8 +52,8 @@
       <section id="banner">
         <img src="../ima/fime.jpg">
         <div class="contenedor">
-          <h2>Conferencias</h2>
-          <p>Apuntate para alguna conferencia</p>
+          <h2>Administración</h2>
+          <p>Panel para administradores</p>
         </div>
       </section>
       <section id="Bienvenidos">
@@ -57,14 +70,32 @@
             <th>Sexo</th>
             <th><a href="nuevo_admin.php"><input type="submit" value="Nuevo" class="boton_nuevo"></a></th>
           </tr>
+          <?php
+          $sexo="";
+          $query = $db->connect()->prepare("SELECT * FROM usuarios WHERE id_tipo=1");
+          $query->execute();
+
+          if($query->rowCount()) {
+            while ($data = $query->fetch(PDO::FETCH_ASSOC)) {
+              $id = $data['id_usuario'];
+              if($data['sexo'] == "H") {
+                $sexo="Masculino";
+              } else {
+                $sexo="Femenino";
+              }
+          ?>
           <tr>        
-            <td>1</td> 
-            <td>Diego Huerta Gonzalez</td>
-            <td>diegoh92@gmail.com</td>
-            <td>8189321278</td> 
-            <td>Masculino</td>         
-            <td align="center"><a href="asistencia.php"><input type="submit" value="Modificar" class="boton_mod"></a><input type="submit" value="Eliminar" id="btnEliminar" class="boton_elim"></a></td>
-          </tr>             
+            <td><?php echo $id;?></td> 
+            <td><?php echo $data['nombre'];?></td>
+            <td><?php echo $data['correo'];?></td>
+            <td><?php echo $data['telefono'];?></td> 
+            <td><?php echo $sexo;?></td>         
+            <td align="center"><a href="mod_admin.php?id=<?php echo $id?>"><input type="submit" value="Modificar" class="boton_mod"></a><a href='#' onclick="preguntar(<?php echo $id?>)"><input type="submit" value="Eliminar" id="btnEliminar" class="boton_elim"></a></td>
+          </tr>
+          <?php
+              }
+            }
+            ?>              
         </table>
       </div>
 
@@ -111,6 +142,13 @@
 </footer>
 
     </main>
+    <script type="text/javascript">
+      function preguntar(id) {
+        if(confirm('¿Seguro que quieres eliminar?')) {
+          window.location.href = "administradores.php?del="+id;
+        }
+      }
+    </script>
   </body>
 </html>
 

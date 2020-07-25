@@ -1,3 +1,13 @@
+<?php
+include_once '../include/db.php';
+include_once '../include/consultaAdmin.php';
+$db = new DB();
+//$admin = new 
+$cons = new ConsultaAdmin();
+$consulta = $cons->consultarAdmin($_GET['id']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -46,40 +56,38 @@
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarAdmin.php" target="" method="POST" name="formAdmin" onsubmit="return validar();">
-          <?php
-          $sexo = "";
-          ?>
+          <form action="../include/modificarAdmin.php" target="" method="POST" name="formAdmin" onsubmit="return validar();">
 
             <section id="Inicio_sesion">
-                <h2>Nuevo Administrador</h2>
+                <h2>Modificar Administrador</h2>
               </section>
             <section id="blog">
                 <hr>
             </section>
 
+            <input type="hidden" name="id" id="id" value="<?php echo $_GET['id'];?>">
             <h3 for="nombre">Nombre</h3>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo" required>
+            <input type="text" name="nombre" id="nombre" value="<?php echo $consulta[2];?>" placeholder="Nombre Completo" required>
             <br>
             <h3 for="email">Email</h3>
-            <input type="email" name="email" id="email" placeholder="@" required>
+            <input type="email" name="email" id="email" value="<?php echo $consulta[3];?>" placeholder="@" required>
             <br>
             <h3 for="telefono">Telefono</h3>
-            <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)">
+            <input type ="text" name="telefono" id="telefono" value="<?php echo $consulta[4];?>" placeholder="(Opcional)">
             <br>
             <h3 for="sexo">Sexo</h3>
-            <input type="radio" name="sexo" value="H" id="sexo" <?php if($sexo == "H") echo "checked"; ?>>
+            <input type="radio" name="sexo" value="H" id="sexo" <?php if($consulta[5] == "H") echo "checked"; ?>>
             <label for="H">Masculino</label>		
-            <input type="radio" name="sexo" value="M" id="sexo" <?php if($sexo == "M") echo "checked"; ?>>
+            <input type="radio" name="sexo" value="M" id="sexo" <?php if($consulta[5] == "M") echo "checked"; ?>>
             <label for="M">Femenino</label>
             <br>
             <h3 for="username">Username</h3>
-            <input type ="text" name="username" id="username" placeholder="Username" required>
+            <input type ="text" name="username" id="username" value="<?php echo $consulta[0];?>" placeholder="Username" required>
             <br>
             <h3 for="contra">Contraseña</h3>
-            <input type ="password" name="contra" id="contra" placeholder="*****" required>
+            <input type ="password" name="contra" id="contra" value="<?php echo $consulta[1];?>" placeholder="*****" required>
 
-            <input type="submit" name="enviar_admin"  value="Registrar">
+            <input type="submit" name="enviar_admin"  value="Modificar">
 
           </form>
         </div>      

@@ -77,7 +77,7 @@
               <i class="far fa-clipboard icon"></i><a class="link" href="vistas/registros_conferencia.php">Registros Conferencia</a>
               <br>
               <br>
-              <i class="fas fa-plus icon"></i><a class="link" href="vistas/administradores.php">Nuevo Administrador</a>
+              <i class="fas fa-plus icon"></i><a class="link" href="vistas/administradores.php">Administradores</a>
               <br>
               
             </section>

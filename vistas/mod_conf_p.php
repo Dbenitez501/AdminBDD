@@ -64,7 +64,6 @@ $consulta = $cons->consultarPre($_GET['id']);
         
           <form action="../include/modificarPresencial.php" target="" method="POST" name="modPresencial" onsubmit="return validar();">
             <?php
-            $est;
             $queryCB = $db->connect()->prepare("SELECT * FROM lugar_expo");
             $queryCB->execute();
             $arrayList = $queryCB->fetchAll(PDO::FETCH_ASSOC);
@@ -72,7 +71,7 @@ $consulta = $cons->consultarPre($_GET['id']);
             
 
             <section id="Inicio_sesion">
-              <h2>Conferencia Presencial</h2>
+              <h2>Modificar Conferencia Presencial</h2>
             </section>
             <section id="blog">
               <hr>
