@@ -72,7 +72,7 @@ $consulta = $cons->consultarAdmin($_GET['id']);
             <h3 for="email">Email</h3>
             <input type="email" name="email" id="email" value="<?php echo $consulta[3];?>" placeholder="@" required>
             <br>
-            <h3 for="telefono">Telefono</h3>
+            <h3 for="telefono">Teléfono</h3>
             <input type ="text" name="telefono" id="telefono" value="<?php echo $consulta[4];?>" placeholder="(Opcional)">
             <br>
             <h3 for="sexo">Sexo</h3>

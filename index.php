@@ -41,14 +41,15 @@ $virtual = new Virtual();
         ?>
         <a href="https://www.fime.uanl.mx/">FIME</a>
         <?php
-        if(isset($_SESSION['user'])) {          
+        if(isset($_SESSION['user'])) {
           echo "<a href='vistas/tabla_asistencias.php'>Mis Conferencias</a>";
         }
-        
+        ?>
+        <a href="vistas/nosotros.php">Acerca de nosotros</a>
+        <?php
         if(isset($_SESSION['user'])) {
           echo "<a href='include/logout.php'>Cerrar Sesión</a>";
-        }
-        
+        } 
         ?>
       </nav>
     </div>
@@ -80,7 +81,7 @@ $virtual = new Virtual();
         <h2>Estas son las conferencias disponibles</h2>
       </section>
       
-      <section class="contenedor">
+      <section class="contenedor_T">
 
         <!--CODIGO PARA GENERAR LAS CONFERENCIAS DISPONIBLES-->
       <?php

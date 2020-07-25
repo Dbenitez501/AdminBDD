@@ -1,6 +1,21 @@
 <?php
 include_once '../include/db.php';
+include_once '../include/presencial.php';
+include_once '../include/virtual.php';
+include_once '../include/user.php';
+include_once '../include/user_session.php';
 $db = new DB();
+$presencial = new Presencial();
+$virtual = new Virtual();
+$userSession = new UserSession();
+$user = new User();
+
+$idUser;
+
+if(isset($_SESSION['user'])) {
+  $user->setUser($userSession->getCurrentUser());
+  $idUser = $user->getIdUsu();
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,13 +31,13 @@ $db = new DB();
     <link rel="stylesheet" href="../css/blog.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/tarjetas.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/inicio_seccion.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="../css/registro_sesion.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="../css/registro.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/encabezado.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/nosotros.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
-    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">   
-    <script src="../js/validarAlumno.js"></script>
-
+    
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    
+    
   </head>
   <body>
     <!--encabezado-->
@@ -32,9 +47,26 @@ $db = new DB();
       <input type="checkbox" id="menu-bar">
       <label class="icon-menu" for="menu-bar"></label>
       <nav class="menu">
+      <?php
+        if(!isset($_SESSION['user'])) {
+          //echo "<a href='index.php'> Inicio de sesión </a>";
+          echo "<a href='../controlador.php'> Inicio de sesión </a>";
+        }
+        ?>
         <a href="../index.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
+        <?php
+        if(isset($_SESSION['user'])) {
+          echo "<a href='tabla_asistencias.php'>Mis Conferencias</a>";
+        }
+        ?>
         <a href="nosotros.php">Acerca de nosotros</a>
+        <?php
+        if(isset($_SESSION['user'])) {
+          echo "<a href='../include/logout.php'>Cerrar Sesión</a>";
+        }
+        
+        ?>
       </nav>
     </div>
     </header>
@@ -51,53 +83,25 @@ $db = new DB();
       </section>
       
       <section class="contenedor">
-        <div class="contenedor_2">
-        
-          <form action="../include/registrarAlumno.php" target="" method="POST" name="formAlumno" onsubmit="return validar();">
-            <?php
-            $sexo = "";
-            ?>
-
-            <section id="Inicio_sesion">
-              <h2>Alumno</h2>
-            </section>
-            <section id="blog">
-              <hr>
-            </section>
-
-            <h3 for="nombre">Nombre</h3>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo">
-            <br>
-            <h3 for="matricula">Matrícula</h3>
-            <input type="text" name="matricula" id="matricula" placeholder="###">
-            <br>
-            <h3 for="carrera">Carrera</h3>
-            <input type="text" name="carrera" id="carrera" placeholder="(IAS,ITS,IME,IMA..)">
-            <br>
-            <h3 for="email">Email</h3>
-            <input type="email" name="email" id="email" placeholder="@">
-            <br>
-            <h3 for="telefono">Teléfono</h3>
-            <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)">
-            <br>
-            <h3 for="sexo">Sexo</h3>
-            <input type="radio" name="sexo" value="H" id="sexo" <?php if($sexo == "H") echo "checked"; ?>>
-            <label for="H">Hombre</label>		
-            <input type="radio" name="sexo" value="M" id="sexo" <?php if($sexo == "M") echo "checked"; ?>>
-            <label for="M">Mujer</label>
-            <br>
-            <h3 for="username">Username</h3>
-            <input type ="text" name="username" id="username" placeholder="Username">
-            <br>
-            <h3 for="contra">Contraseña</h3>
-            <input type ="password" name="contra" id="contra" placeholder="*****">
-            
-            <input type="submit" name="enviar_alumno"  value="Registrar">
-
-          </form>
-
-        </div>
+        <h2 class="centro">Acerca de nosotros</h2>
+        <br>
+        <hr>
+        <br>
+        <h3 class="centro">Equipo conformado por:</h3>
+        <br>
+        <h3 class="centro">Abiam Alberto Escobedo Ruiz</h3>
+        <h3 class="centro">Diego Benítez Reyna</h3>
+        <h3 class="centro">Frida Marlene Cerda García</h3>
+        <h3 class="centro">Iván Fernando Jiménez Rodríguez</h3>
+        <h3 class="centro">Luz Elena Nevárez Guajardo</h3>
+        <br>
+        <hr>
+        <br>
+        <h3 class="centro">Numero de contacto FIME:</h3>
+        <h3 class="centro">(52) 81 8329 4020</h3>
       </section>
+
+
       <br>
       <br>
 

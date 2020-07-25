@@ -30,6 +30,7 @@
       <nav class="menu">
         <a href="../index.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
+        <a href="nosotros.php">Acerca de nosotros</a>
       </nav>
     </div>
     </header>

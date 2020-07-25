@@ -3,8 +3,12 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+.contenedor_T{
+    width: 99%;
+    margin: 10px;
+}
 
-.contenedor .tarjetas{
+.contenedor_T .tarjetas{
     width: 330px;
     height: 600px;
     border-radius: 15px;
@@ -12,37 +16,52 @@
     overflow: hidden;
     margin: 10px;
     text-align: center;
-    transition: all 0.25s;
+    transition: all 0.30s;
     background: #1C5630;
     color: white;
 }
 
 
-.contenedor .tarjetas:hover{
+.contenedor_T .tarjetas:hover{
     transform: translateY(-15px);
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
     background: #498B2A;
 }
 
-.contenedor .tarjetas img{
+.contenedor_T .tarjetas img{
     width: 330px;
     height: 220px;
 }
 
-.contenedor .tarjetas h4{
+.contenedor_T .tarjetas h4{
     font-weight: 600;
     text-align: center;
 }
 
-.contenedor .tarjetas p{
+.contenedor_T .tarjetas p{
     padding: 0 1rem;
     font-size: 16px;
     font-weight: 300;
     display: block;
 }
 
-.contenedor .tarjetas a{
+.contenedor_T .tarjetas a{
     font-weight: 500;
     text-decoration: none;
     color: #3498db;
+}
+
+@media(min-width:768px)
+{
+    .contenedor_T{
+        width: 98%;
+    }
+}
+
+@media(min-width:480px)
+{
+    .contenedor_T{
+        width: 98%;
+    }
+
 }

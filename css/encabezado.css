@@ -113,10 +113,7 @@
     flex-wrap: wrap;
     box-sizing: border-box;
   }
-
-
-
-
+  
   @media (min-width:480px) {
     #obj-info .obj-content1 img{
         width: 185px;
