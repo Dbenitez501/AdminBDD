@@ -4,7 +4,7 @@ $db = new DB();
 
 //Recibe los datos y los almacena en variables
 $nombre     = $_POST['nombre'];
-$matricula  = $_POST['matricula'];
+$matricula  = $_POST['mat'];
 $carrera    = $_POST['carrera'];
 $email      = $_POST['email'];
 $username   = $_POST['username'];

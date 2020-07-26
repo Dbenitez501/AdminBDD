@@ -66,7 +66,7 @@ if(isset($_GET['del'])) {
         <table class="tabla_conferencia">
           <tr>
             <th>Id</th>
-            <th class="titulo">Titulo</th>
+            <th class="titulo">Título</th>
             <th class="desc">Descripción</th>
             <th>Expositor</th>
             <th>Fecha</th>

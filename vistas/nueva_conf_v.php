@@ -59,7 +59,7 @@
               <hr>
             </section>
 
-            <h3 for="titulo">Titulo</h3>
+            <h3 for="titulo">Título</h3>
             <input type="text" name="titulo" id="titulo" placeholder="..." required>
             <br>
             <h3 for="descripcion">Descripción</h3>
@@ -77,7 +77,7 @@
             <h3 for="plataforma">Plataforma</h3>
             <input type ="text" name="plataforma" id="plataforma" placeholder="(MsTeams,Zoom..)" required>
             <br>
-            <h3 for="codigo_plat">Código Plataforma</h3>
+            <h3 for="codigo_plat">Código de Plataforma</h3>
             <input type ="text" name="codigo_plat" id="codigo_plat" placeholder="">
             <br>
             <h3 for="codigo_as">Código de asistencia</h3>

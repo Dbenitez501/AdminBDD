@@ -54,8 +54,8 @@ $virtual = new Virtual();
       <section id="banner">
         <img src="../ima/fime.jpg">
         <div class="contenedor_admin">
-          <h2>Administración</h2>
-          <p>Panel para administradores</p>
+          <h2>Mis Conferencias</h2>
+          <p>Checa las conferencias a las que te registraste</p>
         </div>
       </section>
       

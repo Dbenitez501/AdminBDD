@@ -21,7 +21,7 @@ $db = new DB();
     <link rel="stylesheet" href="../css/encabezado.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">   
-    <script src="../js/validarAlumno.js"></script>
+    <script src="../js/validaAlumno.js"></script>
 
   </head>
   <body>
@@ -68,8 +68,8 @@ $db = new DB();
             <h3 for="nombre">Nombre</h3>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo">
             <br>
-            <h3 for="matricula">Matrícula</h3>
-            <input type="text" name="matricula" id="matricula" placeholder="###">
+            <h3 for="mat">Matrícula</h3>
+            <input type="text" name="mat" id="mat" placeholder="###">
             <br>
             <h3 for="carrera">Carrera</h3>
             <input type="text" name="carrera" id="carrera" placeholder="(IAS,ITS,IME,IMA..)">
@@ -82,9 +82,9 @@ $db = new DB();
             <br>
             <h3 for="sexo">Sexo</h3>
             <input type="radio" name="sexo" value="H" id="sexo" <?php if($sexo == "H") echo "checked"; ?>>
-            <label for="H">Hombre</label>		
+            <label for="H">Masculino</label>		
             <input type="radio" name="sexo" value="M" id="sexo" <?php if($sexo == "M") echo "checked"; ?>>
-            <label for="M">Mujer</label>
+            <label for="M">Femenino</label>
             <br>
             <h3 for="username">Username</h3>
             <input type ="text" name="username" id="username" placeholder="Username">

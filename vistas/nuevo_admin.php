@@ -64,7 +64,7 @@
             <h3 for="email">Email</h3>
             <input type="email" name="email" id="email" placeholder="@" required>
             <br>
-            <h3 for="telefono">Telefono</h3>
+            <h3 for="telefono">Teléfono</h3>
             <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)">
             <br>
             <h3 for="sexo">Sexo</h3>

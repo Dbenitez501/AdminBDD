@@ -67,7 +67,7 @@ $db = new DB();
             <h3 for="nombre">Nombre</h3>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo" required>
             <br>
-            <h3 for="numero_emp">Numero de empleado</h3>
+            <h3 for="numero_emp">Número de empleado</h3>
             <input type="text" name="numero_emp" id="numero_emp" placeholder="###" required>
             <br>
             <h3 for="email">Email</h3>
@@ -78,9 +78,9 @@ $db = new DB();
             <br>
             <h3 for="sexo">Sexo</h3>
             <input type="radio" name="sexo" value="H" id="sexo" <?php if($sexo == "H") echo "checked"; ?>>
-            <label for="H">Hombre</label>		
+            <label for="H">Masculino</label>		
             <input type="radio" name="sexo" value="M" id="sexo" <?php if($sexo == "M") echo "checked"; ?>>
-            <label for="M">Mujer</label>
+            <label for="M">Femenino</label>
             <br>
             <h3 for="username">Username</h3>
             <input type ="text" name="username" id="username" placeholder="Username" required>

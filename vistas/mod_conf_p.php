@@ -79,7 +79,7 @@ $consulta = $cons->consultarPre($_GET['id']);
 
             <input type="hidden" name="id" id="id" value="<?php echo $_GET['id'];?>">
             
-            <h3 for="titulo">Titulo</h3>            
+            <h3 for="titulo">Título</h3>            
             <input type="text" name="titulo" id="titulo" value="<?php echo $consulta[0];?>" placeholder="...">
             <br>
             <h3 for="descripcion">Descripción</h3>

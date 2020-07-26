@@ -73,7 +73,7 @@
                      <input type="submit" value="Login" class="button">
                      <section id="Bienvenidos">
                         <br>
-                        <h4>¿No tienes una cuenta? <a class="link" href="vistas/nuevo_usu.php">Registrate</a></h4>
+                        <h4>¿No tienes una cuenta? <a class="link" href="vistas/nuevo_usu.php">Regístrate</a></h4>
                      </section>
                  </div>
                 </form>

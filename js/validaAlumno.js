@@ -4,7 +4,7 @@ function validar()
     var s = false;
     
     nombre = document.getElementById("nombre").value;
-    matricula = document.getElementById("matricula").value;
+    matricula = document.getElementById("mat").value;
     carrera = document.getElementById("carrera").value;
     email = document.getElementById("email").value;
     telefono = document.getElementById("telefono").value;
@@ -23,7 +23,7 @@ function validar()
         alert("El nombre es muy largo");
         return false;
     }
-    else if(matricula.length > 6) {
+    else if(matricula.length > 7) {
         alert("La matrícula es muy larga");
         return false;
     }

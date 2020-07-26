@@ -69,7 +69,7 @@ $db = new DB();
               <hr>
             </section>
 
-            <h3 for="titulo">Titulo</h3>
+            <h3 for="titulo">Título</h3>
             <input type="text" name="titulo" id="titulo" placeholder="...">
             <br>
             <h3 for="descripcion">Descripción</h3>

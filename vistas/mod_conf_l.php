@@ -73,12 +73,12 @@ $consulta = $cons->consultarLugar($_GET['id']);
             <h3 for="nombre">Nombre</h3>
             <input type="text" name="nombre" id="nombre" value="<?php echo $consulta[0];?>" placeholder=".....">
             <br>
-            <h3 for="cap_max">Capacidad Máxima</h3>
-            <input type="text" name="cap_max" id="cap_max" value="<?php echo $consulta[2];?>" placeholder="###">
-            <br>
             <h3 for="ubicacion">Ubicación</h3>
             <input type="text" name="ubicacion" id="ubicacion" value="<?php echo $consulta[1];?>" placeholder="(Edificio 2,CIDET, etc..)">
             <br>
+            <h3 for="cap_max">Capacidad Máxima</h3>
+            <input type="text" name="cap_max" id="cap_max" value="<?php echo $consulta[2];?>" placeholder="###">
+            <br>            
             <h3 for="desc">Descripción</h3>
             <br>
             <textarea type="textarea" name="desc" id="desc" placeholder="....." style="font-size:20px ;margin:5px; width: 75%; height: 150px;"><?php echo $consulta[3];?></textarea>

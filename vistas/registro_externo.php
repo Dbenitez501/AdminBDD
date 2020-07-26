@@ -75,9 +75,9 @@ $db = new DB();
             <br>
             <h3 for="sexo">Sexo</h3>
             <input type="radio" name="sexo" value="H" id="sexo" <?php if($sexo == "H") echo "checked"; ?>>
-            <label for="H">Hombre</label>		
+            <label for="H">Masculino</label>		
             <input type="radio" name="sexo" value="M" id="sexo" <?php if($sexo == "M") echo "checked"; ?>>
-            <label for="M">Mujer</label>
+            <label for="M">Femenino</label>
             <br>
             <h3 for="username">Username</h3>
             <input type ="text" name="username" id="username" placeholder="Username" required>
