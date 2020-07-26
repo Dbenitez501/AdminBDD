@@ -96,7 +96,7 @@ $virtual = new Virtual();
             $idV = $dataV["id_virtual"]; 
       ?>
         
-        <div class="contenedor_2">
+        
           <div class="tarjetas">
 
               <img src="ima/cubero.jpg">
@@ -124,7 +124,6 @@ $virtual = new Virtual();
           while($dataP = $queryPresencial->fetch(PDO::FETCH_ASSOC)) {
             $idP = $dataP['id_presencial'];
       ?>
-        <div class="contenedor_2">
           <div class="tarjetas">
 
               <img src="ima/cubero.jpg">
@@ -149,7 +148,10 @@ $virtual = new Virtual();
         }  
       ?>
 
-        </div>
+
+
+
+
       </section>
       <br>
       <br>
@@ -173,6 +175,9 @@ $virtual = new Virtual();
             <li><a href="https://www.uanl.mx/enlinea/"><i class="fas fa-desktop"></i>   Servicios en línea </a></li>
         </ul>
         </div>
+
+
+
         <div class="obj-content">
             <h5><span>| R</span>edes Sociales</h5>
             <ul>
@@ -186,7 +191,7 @@ $virtual = new Virtual();
   <ul>
     <a><img src="ima/Logos.png" alt="LogoUANL" > </a>
   </ul>
-</div>
+        </div>
       </section>
 </footer>
 
