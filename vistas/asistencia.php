@@ -42,6 +42,7 @@ $virtual = new Virtual();
         <a href="../controlador.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
         <a href="tabla_asistencias.php">Mis Conferencias</a>
+        <a href="nosotros.php">Acerca de</a>
         <a href="../include/logout.php">Cerrar Sesión</a>
       </nav>
     </div>

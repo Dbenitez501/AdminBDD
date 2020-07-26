@@ -45,7 +45,7 @@ $virtual = new Virtual();
           echo "<a href='vistas/tabla_asistencias.php'>Mis Conferencias</a>";
         }
         ?>
-        <a href="vistas/nosotros.php">Acerca de nosotros</a>
+        <a href="vistas/nosotros.php">Acerca de</a>
         <?php
         if(isset($_SESSION['user'])) {
           echo "<a href='include/logout.php'>Cerrar Sesión</a>";

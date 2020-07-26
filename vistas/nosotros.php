@@ -53,14 +53,14 @@ if(isset($_SESSION['user'])) {
           echo "<a href='../controlador.php'> Inicio de sesión </a>";
         }
         ?>
-        <a href="../index.php"> Inicio</a>
+        <a href="../controlador.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
         <?php
         if(isset($_SESSION['user'])) {
           echo "<a href='tabla_asistencias.php'>Mis Conferencias</a>";
         }
         ?>
-        <a href="nosotros.php">Acerca de nosotros</a>
+        <a href="nosotros.php">Acerca de</a>
         <?php
         if(isset($_SESSION['user'])) {
           echo "<a href='../include/logout.php'>Cerrar Sesión</a>";
