@@ -83,7 +83,6 @@ if(isset($_SESSION['user'])) {
       <div id="tabla_conf" align="center">
         <table class="tabla_conferencia">          
           <tr>
-            <th>Id</th>
             <th>Título</th>
             <th>Fecha</th>
             <th>Hora</th>
@@ -99,8 +98,7 @@ if(isset($_SESSION['user'])) {
             while ($dataP = $queryP->fetch(PDO::FETCH_ASSOC)) {
               $idRegP = $dataP['id_registro'];
           ?>
-          <tr>        
-            <td><?php echo $idRegP;?></td> 
+          <tr> 
             <td><?php echo $dataP['titulo'];?></td>
             <td><?php echo $dataP['fecha_inicio'];?></td>
             <td><?php echo $dataP['hora_inicio'];?></td>
@@ -121,7 +119,6 @@ if(isset($_SESSION['user'])) {
       <div id="tabla_conf" align="center">
         <table class="tabla_conferencia">
           <tr>
-            <th>Id</th>
             <th>Título</th>
             <th>Fecha</th>
             <th>Hora</th>
@@ -139,8 +136,7 @@ if(isset($_SESSION['user'])) {
             while ($dataV = $queryV->fetch(PDO::FETCH_ASSOC)) {
               $idRegV = $dataV['id_registro'];
           ?>
-          <tr>      
-            <td><?php echo $idRegV;?></td>
+          <tr>
             <td><?php echo $dataV['titulo'];?></td>
             <td><?php echo $dataV['fecha_inicio'];?></td>
             <td><?php echo $dataV['hora_inicio'];?></td>
