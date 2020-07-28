@@ -53,7 +53,14 @@ if(isset($_SESSION['user'])) {
           echo "<a href='../controlador.php'> Inicio de sesión </a>";
         }
         ?>
-        <a href="../controlador.php"> Inicio</a>
+        <?php
+        if(!isset($_SESSION['user'])) {
+          //echo "<a href='index.php'> Inicio de sesión </a>";
+          echo "<a href='../index.php'> Inicio </a>";
+        } elseif(isset($_SESSION['user'])) {
+          echo "<a href='../controlador.php'> Inicio </a>";
+        }
+        ?>
         <a href="https://www.fime.uanl.mx/">FIME</a>
         <?php
         if(isset($_SESSION['user'])) {
