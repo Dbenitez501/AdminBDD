@@ -52,7 +52,7 @@
               //Arroja un error si el usuario y/o contraseña están incorrectos
               //variable $errorLogin se encuentra en el archivo index.php
                 if(isset($errorLogin)) {
-                  echo "<h2>" . $errorLogin . "</h2>";
+                  echo "<h2 style=color:red;>" . $errorLogin . "</h2>";
                 }
               ?>
                 <section id="Inicio_sesion">

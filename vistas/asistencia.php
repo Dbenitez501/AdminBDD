@@ -118,7 +118,7 @@ $virtual = new Virtual();
             <br>
             <h3 for="comentario">Comentario:</h3>
             <br>
-            <textarea  type="textarea" name="comentario" id="comentario" placeholder="(Opcional)" style="font-size:20px ;margin:5px; width: 75%; height: 150px;"></textarea>
+            <textarea  type="textarea" name="comentario" id="comentario" placeholder="" style="font-size:20px ;margin:5px; width: 75%; height: 150px;"></textarea>
             
             <input type="submit" name="guardar_asistencia"  value="Guardar">
 

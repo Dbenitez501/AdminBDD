@@ -77,7 +77,7 @@ $db = new DB();
             <td><?php echo $data['correo'];?></td>
             <td>
             <?php 
-            if($data['tipo'] == "Estudiante" || $data['tipo'] == "Externo") {
+            if($data['tipo'] == "Estudiante") {
               if($data['cant_conf']>=3) {
                 echo "Si";
               } else {
@@ -89,6 +89,8 @@ $db = new DB();
               } else {
                 echo "No";
               }
+            } elseif($data['tipo'] == "Externo") {
+              echo "No";
             }
             ?>
             </td>

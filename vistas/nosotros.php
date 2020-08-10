@@ -98,23 +98,23 @@ if(isset($_SESSION['user'])) {
         <br>
         <h3 class="centro">Abiam Alberto Escobedo Ruiz</h3>
         <br>
-        <h3 class="centro"><i>abiamalberto.19@gmail.com</i> </h4>
+        <h3 class="centro"><i>alberto.escobedorz@uanl.edu.mx</i> </h4>
         <br>
         <h3 class="centro">Diego Benítez Reyna</h3>
         <br>
-        <h3 class="centro"><i>diegobenitez@live.com.mx</i></h4>
+        <h3 class="centro"><i>diego.benitezryn@uanl.edu.mx</i></h4>
         <br>
         <h3 class="centro">Frida Marlene Cerda García</h3>
         <br>
-        <h3 class="centro"><i>fridaantonio092@gmail.com</i></h4>
+        <h3 class="centro"><i>marlene.cerdagrc@uanl.edu.mx</i></h4>
         <br>
         <h3 class="centro">Iván Fernando Jiménez Rodríguez</h3>
         <br>
-        <h3 class="centro"><i>ivan98fer@gmail.com</i></h4>
+        <h3 class="centro"><i>ivan.jimenezro@uanl.edu.mx</i></h4>
         <br>
         <h3 class="centro">Luz Elena Nevárez Guajardo</h3>
         <br>
-        <h3 class="centro"><i>luznevg@gmail.com</i></h4>
+        <h3 class="centro"><i>luz.nevarezgj@uanl.edu.mx</i></h4>
         <br>
         <hr>
         <br>

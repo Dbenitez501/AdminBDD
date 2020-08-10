@@ -63,7 +63,7 @@
             <input type="text" name="titulo" id="titulo" placeholder="..." required>
             <br>
             <h3 for="descripcion">Descripción</h3>
-            <textarea type="text" name="descripcion" id="descripcion" placeholder="descripción" requiered></textarea>
+            <textarea type="text" name="descripcion" id="descripcion" placeholder="Descripción" requiered></textarea>
             <br>
             <h3 for="expositor">Expositor</h3>
             <input type="text" name="expositor" id="expositor" placeholder="Nombre" required>
