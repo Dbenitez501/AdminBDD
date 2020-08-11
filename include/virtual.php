@@ -74,6 +74,26 @@ class Virtual extends DB
             return $idVirtual['id_virtual'];
         }
     }
-}
+    
+    public function getHoraAlt($id)
+    {
+        $consulta = "SELECT hora_inicio FROM virtual WHERE id_virtual=:id";
+        $consulta = $this->connect()->prepare($consulta);
+        $consulta->execute(['id'=>$id]);
+        foreach($consulta as $hora) {
+            return $hora['hora_inicio'];
+        }
+    }
+
+    public function getFechaAlt($id)
+    {
+        $consulta = "SELECT fecha_inicio FROM virtual WHERE id_virtual=:id";
+        $consulta = $this->connect()->prepare($consulta);
+        $consulta->execute(['id'=>$id]);
+        foreach($consulta as $fecha) {
+            return $fecha['fecha_inicio'];
+        }
+    }
+}  
 
 ?>

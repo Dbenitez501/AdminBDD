@@ -119,6 +119,26 @@ class Presencial extends DB
             return $nombre['nombre'];
         }
     }
+
+    public function getHoraAlt($id)
+    {
+        $consulta = "SELECT hora_inicio FROM presencial WHERE id_presencial=:id";
+        $consulta = $this->connect()->prepare($consulta);
+        $consulta->execute(['id'=>$id]);
+        foreach($consulta as $hora) {
+            return $hora['hora_inicio'];
+        }
+    }
+
+    public function getFechaAlt($id)
+    {
+        $consulta = "SELECT fecha_inicio FROM presencial WHERE id_presencial=:id";
+        $consulta = $this->connect()->prepare($consulta);
+        $consulta->execute(['id'=>$id]);
+        foreach($consulta as $fecha) {
+            return $fecha['fecha_inicio'];
+        }
+    }
 }
 
 ?>
