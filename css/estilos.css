@@ -53,6 +53,10 @@ section{
   text-align: center;
 }
 
+#Bienvenidos h3{
+  color: black;
+}
+
 footer .contenedor{
   display: flex;
   flex-wrap: wrap;

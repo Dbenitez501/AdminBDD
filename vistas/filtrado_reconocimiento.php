@@ -51,16 +51,16 @@ $db = new DB();
       </section>
       
       <section id="Bienvenidos">
-        <h2>Registros a Conferencias</h2>
+        <h2>Filtrado por Reconocimiento</h2>
         <br>
       </section>
       
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarAlumno.php" target="" method="POST" name="formAlumno" onsubmit="return validar();">
-            <?php
-            $sexo = "";
+          <form action="" target="" method="POST" name="filtrado_conf">
+            <?php 
+                $aplica="";
             ?>
 
             <section id="Inicio_sesion">
@@ -69,41 +69,18 @@ $db = new DB();
             <section id="blog">
               <hr>
             </section>
-
-           
-            <h3 for="lugar">Conferencia</h3>
-            <select name="lugar" id="lugar">
-              <option value="escoge">--Escoge una Conferencia--</option>
-              <?php 
-              foreach($arrayList as $nombre) {
-              ?>
-              <option value="<?php echo $nombre['id_lugar'];?>"><?php echo $nombre['nombre'];?></option>
-              <?php
-              }
-              ?>
-            </select>
-            <br>
-            <h3 for="email">Email</h3>
-            <input type="email" name="email" id="email" placeholder="@">
-            <br>
-            <h3 for="telefono">Teléfono</h3>
-            <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)">
-            <br>
-            <h3 for="sexo">Sexo</h3>
-            <input type="radio" name="sexo" value="H" id="sexo" <?php if($sexo == "H") echo "checked"; ?>>
-            <label for="H">Masculino</label>		
-            <input type="radio" name="sexo" value="M" id="sexo" <?php if($sexo == "M") echo "checked"; ?>>
-            <label for="M">Femenino</label>
-            <br>
-            <h3 for="username">Username</h3>
-            <input type ="text" name="username" id="username" placeholder="Username">
-            <br>
-            <h3 for="contra">Contraseña</h3>
-            <input type ="password" name="contra" id="contra" placeholder="*****">
             
-            <input type="submit" name="enviar_alumno"  value="Registrar">
-
-          </form>
+            <h3 for="aplica">Aplica:</h3>
+            <input type="radio" name="aplica" value="S" id="aplica" <?php if($aplica == "S") echo "checked"; ?>>
+            <label for="S">Si</label>		
+            <input type="radio" name="aplica" value="N" id="aplica" <?php if($aplica == "N") echo "checked"; ?>>
+            <label for="N">No</label>
+            <input type="radio" name="aplica" value="T" id="aplica" <?php if($aplica == "T") echo "checked"; ?>>
+            <label for="T">Todos</label>
+            <br>
+            <br>
+            <input type="submit" name="filtrar_conf"  value="Filtrar">
+            </form>
 
         </div>
       </section>

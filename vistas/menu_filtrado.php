@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <title>Inicio</title>
 
-    <link rel="stylesheet" href="css/fontello.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="css/estilos.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="css/menu.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="css/banner.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="css/blog.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="css/tarjetas.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="css/inicio_seccion.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="css/registro_sesion.css?v=<?php echo(rand()); ?>" />
-    <link rel="stylesheet" href="css/encabezado.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/fontello.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/estilos.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/menu.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/banner.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/blog.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/tarjetas.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/inicio_seccion.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/registro_sesion.css?v=<?php echo(rand()); ?>" />
+    <link rel="stylesheet" href="../css/encabezado.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
 
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
@@ -28,13 +28,8 @@
       <input type="checkbox" id="menu-bar">
       <label class="icon-menu" for="menu-bar"></label>
       <nav class="menu">
-        <a href="controlador.php"> Inicio</a>
+        <a href="../controlador.php"> Inicio</a>
         <a href="https://www.fime.uanl.mx/">FIME</a>
-        <?php        
-          if(isset($_SESSION['user'])) {
-            echo "<a href='include/logout.php'>Cerrar Sesión</a>";
-          }        
-        ?>
       </nav>
     </div>
     </header>
@@ -43,7 +38,7 @@
 
     <main>
       <section id="banner">
-        <img src="ima/fime.jpg">
+        <img src="../ima/fime.jpg">
         <div class="contenedor_admin">
           <h2>Administración</h2>
           <p>Panel para administradores</p>
@@ -55,31 +50,26 @@
         
           <form class="formulario" action="" method="POST">
             <section id="Registro_sesion">
-              <h2>Menú</h2>
               <br>
-              <h3>Bienvenido/a: <?php
-                if(isset($_SESSION['user'])) {
-                  echo $user->getNombre();
-                } else {
-                  echo "";
-                }
-              ?>
-              </h3>
+              <h3>Tipo de Reporte</h3>
               <br>
               <hr>
               <br>
-              <i class="far fa-plus-square icon"></i><a class="link" href="vistas/menu_tipo.php">Conferencias</a>
+              <i class="fas fa-podcast icon"></i><a class="link" href="filtrado_conferencias.php">Conferencia</a>
               <br>
               <br>
-              <i class="fas fa-map-marker-alt icon"></i><a class="link" href="vistas/admin_lugares.php">Lugares de exposición</a>
+              <i class="far fa-calendar-alt icon"></i><a class="link" href="filtrado_fechas.php">Fechas</a>
               <br>
               <br>
-              <i class="far fa-clipboard icon"></i><a class="link" href="vistas/menu_filtrado.php">Reportes</a>
+              <i class="fas fa-award icon"></i><a class="link" href="filtrado_reconocimiento.php">Reconocimiento</a>
               <br>
               <br>
-              <i class="fas fa-plus icon"></i><a class="link" href="vistas/administradores.php">Administradores</a>
+              <i class="fas fa-user-alt icon"></i><a class="link" href="filtrado_persona.php">Persona</a>
               <br>
-              
+              <br>
+              <br>
+              <br>
+              <i class="fas fa-undo-alt icon"></i><a class="link" href="../controlador.php">Regresar</a>
             </section>
           </form>
 
@@ -119,7 +109,7 @@
         </div>
         <div class="obj-content1">
   <ul>
-    <a><img src="ima/Logos.png" alt="LogoUANL" > </a>
+    <a><img src="../ima/Logos.png" alt="LogoUANL" > </a>
   </ul>
 </div>
       </section>
@@ -128,4 +118,3 @@
     </main>
   </body>
 </html>
-

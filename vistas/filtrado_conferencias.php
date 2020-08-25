@@ -51,17 +51,14 @@ $db = new DB();
       </section>
       
       <section id="Bienvenidos">
-        <h2>Registros a Conferencias</h2>
+        <h2>Filtrado por Conferencia</h2>
         <br>
       </section>
       
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarAlumno.php" target="" method="POST" name="formAlumno" onsubmit="return validar();">
-            <?php
-            $sexo = "";
-            ?>
+          <form action="" target="" method="POST" name="filtrado_conf">
 
             <section id="Inicio_sesion">
               <h2>Filtrado</h2>
@@ -83,26 +80,8 @@ $db = new DB();
               ?>
             </select>
             <br>
-            <h3 for="email">Email</h3>
-            <input type="email" name="email" id="email" placeholder="@">
             <br>
-            <h3 for="telefono">Teléfono</h3>
-            <input type ="text" name="telefono" id="telefono" placeholder="(Opcional)">
-            <br>
-            <h3 for="sexo">Sexo</h3>
-            <input type="radio" name="sexo" value="H" id="sexo" <?php if($sexo == "H") echo "checked"; ?>>
-            <label for="H">Masculino</label>		
-            <input type="radio" name="sexo" value="M" id="sexo" <?php if($sexo == "M") echo "checked"; ?>>
-            <label for="M">Femenino</label>
-            <br>
-            <h3 for="username">Username</h3>
-            <input type ="text" name="username" id="username" placeholder="Username">
-            <br>
-            <h3 for="contra">Contraseña</h3>
-            <input type ="password" name="contra" id="contra" placeholder="*****">
-            
-            <input type="submit" name="enviar_alumno"  value="Registrar">
-
+            <input type="submit" name="filtrar_conf"  value="Filtrar">
           </form>
 
         </div>

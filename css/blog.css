@@ -144,3 +144,19 @@
     max-width: 50%;
     vertical-align:middle;
 }
+
+.Filtrado{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.Filtrado h3{
+  color: black;
+  margin-right: 5px;
+}
+
+
+
+
