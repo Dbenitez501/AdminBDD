@@ -40,7 +40,7 @@
 
     <main>
       <section id="banner">
-        <img src="../ima/fime.jpg">
+        <img src="../img/fime.jpg">
         <div class="contenedor_admin">
           <h2>Administración</h2>
           <p>Panel para administradores</p>
@@ -112,7 +112,7 @@
         </div>
         <div class="obj-content1">
   <ul>
-    <a><img src="../ima/Logos.png" alt="LogoUANL" > </a>
+    <a><img src="../img/Logos.png" alt="LogoUANL" > </a>
   </ul>
 </div>
       </section>

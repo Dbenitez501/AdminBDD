@@ -52,7 +52,7 @@ $virtual = new Virtual();
 
     <main>
       <section id="banner">
-        <img src="../ima/fime.jpg">
+        <img src="../img/fime.jpg">
         <div class="contenedor_admin">
           <h2>Mis Conferencias</h2>
           <p>Checa las conferencias a las que te registraste</p>
@@ -160,7 +160,7 @@ $virtual = new Virtual();
         </div>
         <div class="obj-content1">
   <ul>
-    <a><img src="../ima/Logos.png" alt="LogoUANL" > </a>
+    <a><img src="../img/Logos.png" alt="LogoUANL" > </a>
   </ul>
 </div>
       </section>

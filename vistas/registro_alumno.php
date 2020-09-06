@@ -43,7 +43,7 @@ $db = new DB();
 
     <main>
       <section id="banner">
-        <img src="../ima/fime.jpg">
+        <img src="../img/fime.jpg">
         <div class="contenedor">
           <h2>Conferencias</h2>
           <p>Apuntate para alguna conferencia</p>
@@ -132,7 +132,7 @@ $db = new DB();
         </div>
         <div class="obj-content1">
   <ul>
-    <a><img src="../ima/Logos.png" alt="LogoUANL" > </a>
+    <a><img src="../img/Logos.png" alt="LogoUANL" > </a>
   </ul>
 </div>
       </section>

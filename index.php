@@ -35,13 +35,11 @@ $virtual = new Virtual();
       <nav class="menu">
         <?php
         if(!isset($_SESSION['user'])) {
-          //echo "<a href='index.php'> Inicio de sesión </a>";
           echo "<a href='controlador.php'> Inicio de sesión </a>";
         }
         ?>
         <?php
         if(!isset($_SESSION['user'])) {
-          //echo "<a href='index.php'> Inicio de sesión </a>";
           echo "<a href='index.php'> Inicio </a>";
         } elseif(isset($_SESSION['user'])) {
           echo "<a href='controlador.php'> Inicio </a>";
@@ -67,7 +65,7 @@ $virtual = new Virtual();
 
     <main>
       <section id="banner">
-        <img src='ima/fime.jpg'>        
+        <img src='img/fime.jpg'>        
         <div class="contenedor">
           <h2>Conferencias</h2>
           <p>Apuntate para alguna conferencia</p>
@@ -107,7 +105,7 @@ $virtual = new Virtual();
         
           <div class="tarjetas">
 
-              <img src="ima/cubero.jpg">
+              <img src="img/cubero.jpg">
             
               <h4><?php echo $dataV["titulo"]; ?></h4>
               <p><?php echo "(" . $dataV["tipo"] . ")";?></p>
@@ -134,7 +132,7 @@ $virtual = new Virtual();
       ?>
           <div class="tarjetas">
 
-              <img src="ima/cubero.jpg">
+              <img src="img/cubero.jpg">
             
               <h4><?php echo $dataP["titulo"]; ?></h4>
               <p><?php echo "(" . $dataP["tipo"] . ")";?></p>
@@ -197,7 +195,7 @@ $virtual = new Virtual();
         </div>
         <div class="obj-content1">
   <ul>
-    <a><img src="ima/Logos.png" alt="LogoUANL" > </a>
+    <a><img src="img/Logos.png" alt="LogoUANL" > </a>
   </ul>
         </div>
       </section>
