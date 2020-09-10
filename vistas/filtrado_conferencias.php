@@ -1,6 +1,7 @@
 <?php
 include_once '../include/db.php';
 $db = new DB();
+
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +23,25 @@ $db = new DB();
     <link rel="stylesheet" href="../css/encabezado.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/tcal.css?v=<?php echo(rand()); ?>" />
     <script src="../js/tcal.js" ></script>
+    <script type="text/javascript" src="../lib/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+
+    <script type="text/javascript">
+    //CODIGO PARA RECORDAR QUÉ RADIO BUTTON SELECCIONAMOS USANDO JQUERY
+      $(document).ready(function(){
+        var radios = document.getElementsByName("tipo");
+        var val = localStorage.getItem('tipo');
+        for(var i=0;i<radios.length;i++){
+          if(radios[i].value == val){
+            radios[i].checked = true;
+          }
+        }
+        $('input[name="tipo"]').on('change', function(){
+          localStorage.setItem('tipo', $(this).val());        
+        });
+      });
+    </script>
 
   </head>
   <body>
@@ -58,8 +76,10 @@ $db = new DB();
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="" target="" method="POST" name="filtrado_conf">
-
+          <form action="#" target="" method="POST" name="filtrado_conf">
+          <?php
+          $tipo = "";
+          ?>
             <section id="Inicio_sesion">
               <h2>Filtrado</h2>
             </section>
@@ -67,17 +87,51 @@ $db = new DB();
               <hr>
             </section>
 
-           
-            <h3 for="lugar">Conferencia</h3>
-            <select name="lugar" id="lugar">
-              <option value="escoge">--Escoge una Conferencia--</option>
-              <?php 
-              foreach($arrayList as $nombre) {
-              ?>
-              <option value="<?php echo $nombre['id_lugar'];?>"><?php echo $nombre['nombre'];?></option>
+            <h3 for="tipo">Tipo</h3>
+            <input type="radio" name="tipo" value="P" id="tipo" checked="checked">
+            <label for="P">Presencial</label>		
+            <input type="radio" name="tipo" value="V" id="tipo">
+            <label for="V">Virtual</label>
+            <input type="submit" name="filtrar_tipo"  value="Select">
+            <br>
+
+            <h3 for="conferencia">Conferencia</h3>
+            <select name="conferencia" id="conferencia">
+              <option value="">--Escoge una Conferencia--</option>
+
               <?php
+              if(isset($_POST['tipo']))
+              {
+                if($_POST['tipo'] == "P")
+                {
+                  $queryP = $db->connect()->prepare("SELECT * FROM presencial");
+                  $queryP->execute();
+                  $arrayList = $queryP->fetchAll(PDO::FETCH_ASSOC);
+
+                  foreach($arrayList as $presencial)
+                  {
+              ?>
+                  <option value="<?php echo $presencial['id_presencial'];?>"><?php echo $presencial['titulo'] . ", " . $presencial['tipo'];?></option>
+              <?php
+                  } 
+                }
+
+                if($_POST['tipo'] == "V")
+                {
+                  $queryV = $db->connect()->prepare("SELECT * FROM virtual");
+                  $queryV->execute();
+                  $arrayList = $queryV->fetchAll(PDO::FETCH_ASSOC);
+
+                  foreach($arrayList as $virtual)
+                  {
+              ?>
+                  <option value="<?php echo $virtual['id_virtual'];?>"><?php echo $virtual['titulo'] . ", " . $virtual['tipo'];?></option>
+              <?php
+                  }
+                }
               }
               ?>
+
             </select>
             <br>
             <br>
@@ -87,56 +141,112 @@ $db = new DB();
         </div>
       </section>
 
+      <?php
+      
+      if(isset($_POST['conferencia']) && isset($_POST['tipo']) && $_POST['conferencia'] != "" )
+      {
+        $titulo="";
 
-      <div id="tabla_reg" align="center">
-        <table class="tabla_conferencia">
-          <tr>
-            <th>Id</th>
-            <th class="nom">Nombre</th>
-            <th class="tipo">Tipo</th>
-            <th>No.Conferencia</th>
-            <th class="Conferencia">Correo</th>
-            <th class="Reconocimiento">Aplica Reconocimiento</th>
-          </tr>
-          <?php
-          $query = $db->connect()->prepare("SELECT * FROM asistencia_registro");
-          $query->execute();
-          if($query->rowCount()) {
-            while ($data = $query->fetch(PDO::FETCH_ASSOC)) {
-              $idUsu = $data["id_usuario"];
-          ?>           
-          <tr>
-            <td><?php echo $idUsu?></td>
-            <td><?php echo $data['nombre'];?></td>
-            <td><?php echo $data['tipo'];?></td>
-            <td><?php echo $data['cant_conf'];?></td>
-            <td><?php echo $data['correo'];?></td>
-            <td>
-            <?php 
-            if($data['tipo'] == "Estudiante") {
-              if($data['cant_conf']>=3) {
-                echo "Si";
-              } else {
-                echo "No";
-              }
-            } elseif ($data['tipo'] == "Docente") {
-              if($data['cant_conf']>=1) {
-                echo "Si";
-              } else {
-                echo "No";
-              }
-            } elseif($data['tipo'] == "Externo") {
-              echo "No";
-            }
-            ?>
-            </td>
-          </tr>
-          <?php
+        if($_POST['tipo'] == "P")
+        {
+          
+          $query1 = $db->connect()->prepare("SELECT usuarios.matricula, presencial.titulo, usuarios.nombre, usuarios.correo, registros.asistencia 
+              FROM registros INNER JOIN usuarios ON registros.id_usuario=usuarios.id_usuario INNER JOIN presencial ON registros.id_presencial=presencial.id_presencial
+              WHERE registros.id_presencial =:id");
+          $query1->execute(['id'=>$_POST['conferencia']]);
+
+          $query2 = $db->connect()->prepare("SELECT presencial.titulo FROM registros INNER JOIN presencial ON registros.id_presencial=presencial.id_presencial WHERE registros.id_presencial =:id1");
+          $query2->execute(['id1'=>$_POST['conferencia']]);
+          if($query2->rowCount()) {
+            while ($data1 = $query2->fetch(PDO::FETCH_ASSOC)) {
+              $titulo = $data1['titulo']; 
             }
           }
-          ?>
+
+      ?>
+        <h2>Conferencia: <?php echo $titulo;?></h2>
+        <div id="tabla_reg" align="center">
+          <table class="tabla_conferencia">
+            <tr>
+              <th>Nombre</th>
+              <th class="nom">Matrícula</th>
+              <th class="nom">Correo</th>
+              <th>Asistió</th>
+            </tr>
+      <?php
+
+          if($query1->rowCount()) {
+            while ($data = $query1->fetch(PDO::FETCH_ASSOC)) {
+              $matUsu = $data['matricula'];
+              $nombreUsu = $data['nombre'];
+              $correoUsu = $data['correo'];
+              $asist = $data['asistencia'];
+      ?>
+                   
+            <tr>
+              <td><?php echo $nombreUsu?></td>
+              <td><?php echo $matUsu?></td>
+              <td><?php echo $correoUsu?></td>
+              <td><?php echo $asist?></td>
+            </tr>
+            <?php
+              }
+            }
+            ?>
+          </table>
+        </div>
+
+      <?php
+        }
+
+        if($_POST['tipo'] == "V")
+        {
+          $query1 = $db->connect()->prepare("SELECT usuarios.matricula, virtual.titulo, usuarios.nombre, usuarios.correo, registros.asistencia 
+              FROM registros INNER JOIN usuarios ON registros.id_usuario=usuarios.id_usuario INNER JOIN virtual ON registros.id_virtual=virtual.id_virtual
+              WHERE registros.id_virtual =:id");
+          $query1->execute(['id'=>$_POST['conferencia']]);
+
+          $query2 = $db->connect()->prepare("SELECT virtual.titulo FROM registros INNER JOIN virtual ON registros.id_virtual=virtual.id_virtual WHERE registros.id_virtual =:id1");
+          $query2->execute(['id1'=>$_POST['conferencia']]);
+          if($query2->rowCount()) {
+            while ($data1 = $query2->fetch(PDO::FETCH_ASSOC)) {
+              $titulo = $data1['titulo']; 
+            }
+          }
+      ?>
+      <h2>Conferencia: <?php echo $titulo;?></h2>
+        <div id="tabla_reg" align="center">
+          <table class="tabla_conferencia">
+            <tr>
+              <th>Nombre</th>
+              <th class="nom">Matrícula</th>
+              <th class="nom">Correo</th>
+              <th>Asistió</th>
+            </tr>
+      <?php
+          if($query1->rowCount()) {
+            while ($data = $query1->fetch(PDO::FETCH_ASSOC)) {
+              $matUsu = $data['matricula'];
+              $nombreUsu = $data['nombre'];
+              $correoUsu = $data['correo'];
+              $asist = $data['asistencia'];
+      ?>
+            <tr>
+              <td><?php echo $nombreUsu?></td>
+              <td><?php echo $matUsu?></td>
+              <td><?php echo $correoUsu?></td>
+              <td><?php echo $asist?></td>
+            </tr>
+      <?php 
+            }
+          }
+      ?>
         </table>
       </div>
+      <?php
+        }
+      }
+      ?>-
 
       <footer id="piepagina">
       <section id="obj-info" class="bg-dark">
@@ -176,5 +286,7 @@ $db = new DB();
 </footer>
 
     </main>
+
+    
   </body>
 </html>
