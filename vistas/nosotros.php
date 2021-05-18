@@ -90,6 +90,7 @@ if(isset($_SESSION['user'])) {
       </section>
       
       <section class="contenedor">
+
         <h2 class="centro">Acerca de nosotros</h2>
         <br>
         <hr>
@@ -120,6 +121,7 @@ if(isset($_SESSION['user'])) {
         <br>
         <h3 class="centro">Numero de contacto FIME:</h3>
         <h3 class="centro">(52) 81 8329 4020</h3>
+
       </section>
 
 

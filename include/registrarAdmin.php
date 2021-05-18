@@ -9,7 +9,7 @@ $username   = $_POST['username'];
 $contra     = $_POST['contra'];
 $sexo;
 $telefono;
-$tipo = 1;
+$tipo = 5;
 
 if(isset($_POST['sexo'])) {
     $sexo = $_POST['sexo'];

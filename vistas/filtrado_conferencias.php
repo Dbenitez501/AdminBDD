@@ -92,7 +92,7 @@ $db = new DB();
             <label for="P">Presencial</label>		
             <input type="radio" name="tipo" value="V" id="tipo">
             <label for="V">Virtual</label>
-            <input type="submit" name="filtrar_tipo"  value="Select">
+            <input type="submit" name="filtrar_tipo"  value="Seleccionar">
             <br>
 
             <h3 for="conferencia">Conferencia</h3>
@@ -100,6 +100,7 @@ $db = new DB();
               <option value="">--Escoge una Conferencia--</option>
 
               <?php
+              //SEGÚN LO QUE SELECICONAMOS EN TIPO, SON LAS CONFERENCIAS QUE NOS VA A MOSTRAR EN EL COMBOBOX 
               if(isset($_POST['tipo']))
               {
                 if($_POST['tipo'] == "P")

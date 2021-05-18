@@ -96,7 +96,7 @@ $consulta = $cons->consultarPre($_GET['id']);
             <br>
             <h3 for="lugar">Lugar</h3>
             <select name="lugar" id="lugar">
-              <option value="<?php echo $consulta[6];?>"><?php echo $presencial->getUbicacionTabla($consulta[6]) . ", " . $presencial->getNombreByID($consulta[6]);?></option>
+              <option value="<?php echo $consulta[6];?>"><?php echo $presencial->getUbicacionTabla($_GET['id']) . ", " . $presencial->getNombreByID($_GET['id']);?></option>
               <?php 
               foreach($arrayList as $nombre) {
               ?>

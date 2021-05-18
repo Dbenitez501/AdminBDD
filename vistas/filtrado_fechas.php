@@ -22,6 +22,7 @@ $db = new DB();
     <link rel="stylesheet" href="../css/encabezado.css?v=<?php echo(rand()); ?>" />
     <link rel="stylesheet" href="../css/tcal.css?v=<?php echo(rand()); ?>" />
     <script src="../js/tcal.js" ></script>
+    <script type="text/javascript" src="../lib/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css?v=<?php echo(rand()); ?>" />
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
 
@@ -58,7 +59,7 @@ $db = new DB();
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="" target="" method="POST" name="filtrado_conf">
+          <form action="#" target="" method="POST" name="filtrado_conf">
 
             <section id="Inicio_sesion">
               <h2>Filtrado</h2>
@@ -66,11 +67,11 @@ $db = new DB();
             <section id="blog">
               <hr>
             </section>
-            <h3 for="fecha">Fecha inicial</h3>
-            <input type="text" name="fecha_i" id="fecha" class="tcal" placeholder="año/mes/día (Seleccionar)">
+            <h3 for="fecha_i">Fecha inicial</h3>
+            <input type="text" name="fecha_i" id="fecha_i" class="tcal" placeholder="año/mes/día (Seleccionar)">
             <br>
-            <h3 for="fecha">Fecha final</h3>
-            <input type="text" name="fecha_i" id="fecha" class="tcal" placeholder="año/mes/día (Seleccionar)">
+            <h3 for="fecha_f">Fecha final</h3>
+            <input type="text" name="fecha_f" id="fecha_f" class="tcal" placeholder="año/mes/día (Seleccionar)">
             <br>
             <br>
             <input type="submit" name="filtrar_conf"  value="Filtrar">
@@ -78,6 +79,24 @@ $db = new DB();
 
         </div>
       </section>
+
+      <?php
+      if(isset($_POST['fecha_i']) && isset($_POST['fecha_f']))
+      {
+        $fecha_inicial = $_POST['fecha_i'];
+        $fecha_final = $_POST['fecha_f'];
+
+        $query = $db->connect()->prepare("");
+      }
+      ?>
+
+
+
+
+
+
+
+
 
 
       <div id="tabla_reg" align="center">
