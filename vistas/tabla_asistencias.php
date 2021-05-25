@@ -80,6 +80,16 @@ if(isset($_SESSION['user'])) {
         <h2>Conferencias Presenciales</h2>
       </section>
 
+      <?php
+      $consultaP="SELECT registros.id_registro, presencial.titulo, presencial.descripcion, presencial.fecha_inicio, presencial.hora_inicio, lugar_expo.nombre, lugar_expo.ubicacion FROM 
+      registros INNER JOIN presencial ON registros.id_presencial=presencial.id_presencial INNER JOIN lugar_expo ON presencial.id_lugar=lugar_expo.id_lugar WHERE registros.id_usuario=:user";
+      $queryP = $db->connect()->prepare($consultaP);
+      $queryP->execute(['user' => $idUser]);
+      if(!$queryP->rowCount()){
+        echo '<h3 class="h2-misconfe">No hay conferencias presenciales registradas</h3><br><br>';
+      } else {
+      ?>
+
       <div id="tabla_conf" align="center">
         <table class="tabla_conferencia">          
           <tr>
@@ -89,14 +99,9 @@ if(isset($_SESSION['user'])) {
             <th>Lugar</th>
             <th>Asistencia</th>
           </tr>
-          <?php         
-          $consultaP="SELECT registros.id_registro, presencial.titulo, presencial.descripcion, presencial.fecha_inicio, presencial.hora_inicio, lugar_expo.nombre, lugar_expo.ubicacion FROM 
-          registros INNER JOIN presencial ON registros.id_presencial=presencial.id_presencial INNER JOIN lugar_expo ON presencial.id_lugar=lugar_expo.id_lugar WHERE registros.id_usuario=:user";
-          $queryP = $db->connect()->prepare($consultaP);
-          $queryP->execute(['user' => $idUser]);
-          if($queryP->rowCount()) {
-            while ($dataP = $queryP->fetch(PDO::FETCH_ASSOC)) {
-              $idRegP = $dataP['id_registro'];
+          <?php        
+          while ($dataP = $queryP->fetch(PDO::FETCH_ASSOC)) {
+            $idRegP = $dataP['id_registro'];
           ?>
           <tr> 
             <td><?php echo $dataP['titulo'];?></td>
@@ -107,14 +112,25 @@ if(isset($_SESSION['user'])) {
           </tr>
           <?php
             }
-          }
-          ?>             
+        }
+        ?>             
         </table>
       </div>
 
       <section id="Bienvenidos">
         <h2>Conferencias Virtuales</h2>
       </section>
+
+      <?php
+      $consultaV = "SELECT registros.id_registro, virtual.titulo, virtual.descripcion,virtual.fecha_inicio,virtual.hora_inicio,virtual.plataforma,virtual.codigo_plat 
+      FROM registros INNER JOIN virtual ON registros.id_virtual= virtual.id_virtual WHERE registros.id_usuario=:user";
+
+      $queryV = $db->connect()->prepare($consultaV);
+      $queryV->execute(['user'=>$idUser]);
+      if(!$queryV->rowCount()){
+        echo '<h3 class="h2-misconfe">No hay conferencias virtuales registradas</h3><br><br>';
+      } else {
+      ?>
 
       <div id="tabla_conf" align="center">
         <table class="tabla_conferencia">
@@ -126,13 +142,7 @@ if(isset($_SESSION['user'])) {
             <th>Código de Acceso </th>
             <th>Asistencia</th>
           </tr>
-          <?php
-          $consultaV = "SELECT registros.id_registro, virtual.titulo, virtual.descripcion,virtual.fecha_inicio,virtual.hora_inicio,virtual.plataforma,virtual.codigo_plat 
-            FROM registros INNER JOIN virtual ON registros.id_virtual= virtual.id_virtual WHERE registros.id_usuario=:user";
-
-          $queryV = $db->connect()->prepare($consultaV);
-          $queryV->execute(['user'=>$idUser]);
-          if($queryV->rowCount()) {
+          <?php    
             while ($dataV = $queryV->fetch(PDO::FETCH_ASSOC)) {
               $idRegV = $dataV['id_registro'];
           ?>

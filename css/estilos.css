@@ -90,3 +90,8 @@ footer .contenedor{
     width: 1100px;
   }
 }
+
+.h2-misconfe{
+  text-align: center;
+  color: red;
+}
