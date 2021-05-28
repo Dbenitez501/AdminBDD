@@ -72,7 +72,7 @@ if(isset($_GET['del'])) {
           </tr>
           <?php
           $sexo="";
-          $query = $db->connect()->prepare("SELECT * FROM usuarios WHERE id_tipo=1");
+          $query = $db->connect()->prepare("SELECT * FROM usuarios WHERE id_tipo=1 OR id_tipo=5");
           $query->execute();
 
           if($query->rowCount()) {

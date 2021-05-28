@@ -25,10 +25,7 @@ if(!isset($_SESSION['user']))
 
     $insertar = "INSERT INTO registros (id_presencial, id_usuario, asistencia) VALUES ('$idConf', '$idUsu', '$asistencia')";
 
-
-
-
-    //VERIFICA QUE NO SE INSCRIBA A LA MISMA HORA Y EL MISMO DÍA EN UNA VIRTUAL
+    //VERIFICA QUE NO SE INSCRIBA A LA MISMA HORA Y EL MISMO DÍA EN UNA PRESENCIAL
     $horaP = $presencial->getHoraAlt($idConf);
     $fechaP = $presencial->getFechaAlt($idConf);
 
@@ -47,8 +44,6 @@ if(!isset($_SESSION['user']))
         </script>';
         exit;
     }
-
-
 
     //VERIFICA SI YA SE INSCRIBIÓ A ESA CONFERENCIA
     $verificaInscripcion = $db->connect()->prepare("SELECT * FROM registros WHERE id_usuario=:user AND id_presencial=:id");
