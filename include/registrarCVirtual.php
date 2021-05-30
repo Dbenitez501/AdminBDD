@@ -16,8 +16,7 @@ $cap_actual = 0;
 $tipo = "Virtual";
 
 //CONSULTA PARA INSERTAR LOS DATOS DE LA CONFERENCIA VIRTUAL
-$insertar = "INSERT INTO virtual (titulo, descripcion, expositor, fecha_inicio, hora_inicio, plataforma, codigo_plat, estado, cap_actual, cap_max, codigo_asistencia, tipo) VALUES 
-('$titulo', '$desc', '$expositor', '$fecha', '$hora', '$plataforma', '$codigo_plat', '$estado', '$cap_actual', '$cap_max', '$codigo_as', '$tipo')";
+$insertar = "INSERT INTO virtual (titulo, descripcion, expositor, fecha_inicio, hora_inicio, plataforma, codigo_plat, estado, cap_actual, cap_max, codigo_asistencia, tipo) VALUES ('$titulo', '$desc', '$expositor', '$fecha', '$hora', '$plataforma', '$codigo_plat', '$estado', '$cap_actual', '$cap_max', '$codigo_as', '$tipo')";
 
 //VERIFICA SI YA EXISTE EL CODIGO DE ASISTENCIA
 $verificarCodigoAsistencia = $db->connect()->prepare("SELECT * FROM virtual WHERE codigo_asistencia = :cod_as");

@@ -13,8 +13,7 @@ $cap_actual = 0;
 $estado = 1;
 $tipo = "Presencial";
 
-$insertar = "INSERT INTO presencial (titulo, descripcion, expositor, fecha_inicio, hora_inicio, capacidad_actual, estado, id_lugar, codigo_asistencia, tipo) VALUES 
-('$titulo', '$desc', '$expositor', '$fecha', '$hora', '$cap_actual', '$estado', '$lugar', '$codigo_as', '$tipo')";
+$insertar = "INSERT INTO presencial (titulo, descripcion, expositor, fecha_inicio, hora_inicio, capacidad_actual, estado, id_lugar, codigo_asistencia, tipo) VALUES ('$titulo', '$desc', '$expositor', '$fecha', '$hora', '$cap_actual', '$estado', '$lugar', '$codigo_as', '$tipo')";
 
 //VERIFICA SI YA ESTÁ OCUPADO EL LUGAR EN UNA HORA
 $verificaLugarHora = $db->connect()->prepare("SELECT * FROM presencial WHERE hora_inicio = :hora AND id_lugar = :lugar AND fecha_inicio = :fecha");
