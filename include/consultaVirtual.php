@@ -19,7 +19,8 @@ class ConsultaVir extends DB
             $filas['codigo_plat'],
             $filas['codigo_asistencia'],
             $filas['cap_max'],
-            $filas['estado']
+            $filas['estado'],
+            $filas['imagen']
         ];
     }
 }

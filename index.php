@@ -105,20 +105,21 @@ $virtual = new Virtual();
         
           <div class="tarjetas">
 
-              <img src="img/cubero.jpg">
+              <img src="img/expositor_img/<?php echo $dataV['imagen'] ?>">
             
               <h4><?php echo $dataV["titulo"]; ?></h4>
-              <p><?php echo "(" . $dataV["tipo"] . ")";?></p>
+              <h5><?php echo "(" . $dataV["tipo"] . ")";?></h5>
               <br>
-              <p>Expositor: <?php echo $dataV["expositor"]; ?></p>
+              <p><b>Expositor:</b> <?php echo $dataV["expositor"]; ?></p>
               <br>
+              <p><b>Descripción:</b></p>
               <p><?php echo $dataV["descripcion"]; ?></p>
               <br>
-              <p>Fecha: <?php echo $dataV["fecha_inicio"]; ?></p>
+              <p><b>Fecha:</b> <?php echo $dataV["fecha_inicio"]; ?></p>
               <br>
-              <p>Hora: <?php echo $dataV["hora_inicio"]; ?></p>
+              <p><b>Hora:</b> <?php echo $dataV["hora_inicio"]; ?></p>
               <br>
-              <p>Plataforma: <?php echo $virtual->getPlataforma($idV);?></p>
+              <p><b>Plataforma:</b> <?php echo $virtual->getPlataforma($idV);?></p>
               <a href="controlador_inscribirV.php?id=<?php echo $idV?>"><input type="submit" value="Inscribir" class="boton_inscribir"></a>          
             
           </div>
@@ -132,20 +133,21 @@ $virtual = new Virtual();
       ?>
           <div class="tarjetas">
 
-              <img src="img/cubero.jpg">
+              <img src="img/expositor_img/<?php echo $dataP['imagen'] ?>">
             
               <h4><?php echo $dataP["titulo"]; ?></h4>
-              <p><?php echo "(" . $dataP["tipo"] . ")";?></p>
+              <h5><?php echo "(" . $dataP["tipo"] . ")";?></h5>
               <br>
-              <p>Expositor: <?php echo $dataP["expositor"]; ?></p>
+              <p> <b>Expositor: </b> <?php echo $dataP["expositor"]; ?></p>
               <br>
+              <p><b>Descripción:</b></p>
               <p><?php echo $dataP["descripcion"]; ?></p>
               <br>
-              <p>Fecha: <?php echo $dataP["fecha_inicio"]; ?></p>
+              <p><b>Fecha: </b><?php echo $dataP["fecha_inicio"]; ?></p>
               <br>
-              <p>Hora: <?php echo $dataP["hora_inicio"]; ?></p>
+              <p><b>Hora: </b><?php echo $dataP["hora_inicio"]; ?></p>
               <br>
-              <p>Lugar: <?php echo $presencial->getNombreLugarTabla($idP) . ", " .  $presencial->getUbicacionTabla($idP); ?></p>
+              <p><b>Lugar: </b><?php echo $presencial->getNombreLugarTabla($idP) . ", " .  $presencial->getUbicacionTabla($idP); ?></p>
               <a href="controlador_inscribirP.php?id=<?php echo $idP?>"><input type="submit" value="Inscribir" class="boton_inscribir"></a>          
             
           </div>

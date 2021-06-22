@@ -17,7 +17,8 @@ class ConsultaPre extends DB
             $filas['hora_inicio'],
             $filas['estado'],
             $filas['id_lugar'],
-            $filas['codigo_asistencia']
+            $filas['codigo_asistencia'],
+            $filas['imagen']
         ];
     }
 }

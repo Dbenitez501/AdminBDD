@@ -62,7 +62,7 @@ $consulta = $cons->consultarPre($_GET['id']);
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/modificarPresencial.php" target="" method="POST" name="modPresencial" onsubmit="return validar();">
+          <form action="../include/modificarPresencial.php" target="" method="POST" enctype="multipart/form-data" name="modPresencial" onsubmit="return validar();">
             <?php
             $queryCB = $db->connect()->prepare("SELECT * FROM lugar_expo");
             $queryCB->execute();
@@ -115,7 +115,12 @@ $consulta = $cons->consultarPre($_GET['id']);
             <input type="radio" name="estado" value="0" id="estado" <?php if($consulta[5] == "0") echo "checked"; ?>>
             <label for="0">Desactivado</label>
             <br>
-            <br>            
+            <br>
+            <img height="100px" src="../img/expositor_img/<?php echo $consulta[8] ?>">
+            <h3 for="image">Nueva Imagen</h3>
+            <input type="file" class="form-img" id="imagen" name="imagen" multiple>
+            <br>
+            <br>             
             <input type="submit" name="registrar_conf_p"  value="Modificar">
 
           </form>

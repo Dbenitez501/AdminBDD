@@ -50,7 +50,7 @@
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarCVirtual.php" target="" method="POST" name="formRegConfVirtual" onsubmit="return validar();">
+          <form action="../include/registrarCVirtual.php" target="" method="POST" enctype="multipart/form-data" name="formRegConfVirtual" onsubmit="return validar();">
 
             <section id="Inicio_sesion">
               <h2>Nueva Conferencia Virtual</h2>
@@ -85,6 +85,11 @@
             <br>
             <h3 for="cap_max">Capacidad Máxima </h3>
             <input type ="text" name="cap_max" id="cap_max" placeholder="###" required>
+
+            <h3 for="image">Imagen</h3>
+            <input type="file" class="form-img" id="imagen" name="imagen" multiple>
+            <br>
+            <br>
             
             <input type="submit" name="registrar_conf_v"  value="Registrar">
 

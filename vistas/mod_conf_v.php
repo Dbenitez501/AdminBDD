@@ -62,7 +62,7 @@ $consulta = $cons->consultarVir($_GET['id']);
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/modificarVirtual.php" target="" method="POST" name="modVirtual" onsubmit="return validar();">
+          <form action="../include/modificarVirtual.php" target="" method="POST" enctype="multipart/form-data" name="modVirtual" onsubmit="return validar();">
           
             <section id="Inicio_sesion">
               <h2>Modificar Conferencia Virtual</h2>
@@ -104,6 +104,11 @@ $consulta = $cons->consultarVir($_GET['id']);
             <label for="1">Activado</label>		
             <input type="radio" name="estado" value="0" id="estado" <?php if($consulta[9] == "0") echo "checked"; ?>>
             <label for="0">Desactivado</label>
+            <br>
+            <br>
+            <img height="100px" src="../img/expositor_img/<?php echo $consulta[10] ?>">
+            <h3 for="image">Nueva Imagen</h3>
+            <input type="file" class="form-img" id="imagen" name="imagen" multiple>
             <br>
             <br> 
             

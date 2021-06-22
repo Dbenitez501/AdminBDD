@@ -55,7 +55,7 @@ $db = new DB();
       <section class="contenedor">
         <div class="contenedor_2">
         
-          <form action="../include/registrarCPresencial.php" target="" method="POST" name="formRegConfPresencial" onsubmit="return validar();">
+          <form action="../include/registrarCPresencial.php" target="" method="POST" name="formRegConfPresencial" enctype="multipart/form-data" onsubmit="return validar();">
             <?php
             $queryCB = $db->connect()->prepare("SELECT * FROM lugar_expo");
             $queryCB->execute();
@@ -98,6 +98,11 @@ $db = new DB();
             <br>
             <h3 for="codigo_as">Código de asistencia</h3>
             <input type ="text" name="codigo_as" id="codigo_as">
+            <br>
+            
+            <h3 for="image">Imagen</h3>
+            <input type="file" class="form-img" id="imagen" name="imagen" multiple>
+            <br>
             <br>
             
             <input type="submit" name="registrar_conf_p"  value="Registrar">
