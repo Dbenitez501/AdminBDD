@@ -70,7 +70,7 @@
                      <input type="password" name="password" placeholder="Contraseña">
                      </div>
 
-                     <input type="submit" value="Login" class="button">
+                     <input type="submit" value="Ingresar" class="button">
                      <section id="Bienvenidos">
                         <br>
                         <h4>¿No tienes una cuenta? <a class="link" href="vistas/nuevo_usu.php">Regístrate</a></h4>

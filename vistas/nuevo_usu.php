@@ -63,7 +63,7 @@
               <i class="fas fa-book icon"></i></i><a class="link" href="registro_alumno.php">Alumno</a>
               <br>
               <br>
-              <i class="fas fa-user-secret icon"></i><a class="link" href="registro_externo.php">Externo a FIME</a>
+              <i class="fas fa-user-alt icon"></i><a class="link" href="registro_externo.php">Externo a FIME</a>
               <br>
               <br>
               <br>
