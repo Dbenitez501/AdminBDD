@@ -21,7 +21,7 @@ function validar() {
         alert("Debe escoger un lugar");
         return false;
     }
-    else if (titulo.length > 100) {
+    else if (titulo.length > 255) {
         alert("El título es muy largo");
         return false;
     }

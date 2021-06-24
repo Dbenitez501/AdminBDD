@@ -85,7 +85,7 @@
             <br>
             <h3 for="cap_max">Capacidad Máxima </h3>
             <input type ="text" name="cap_max" id="cap_max" placeholder="###" required>
-
+            <br>
             <h3 for="image">Imagen</h3>
             <input type="file" class="form-img" id="imagen" name="imagen" multiple>
             <br>

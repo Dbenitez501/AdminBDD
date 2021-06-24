@@ -116,11 +116,13 @@ $consulta = $cons->consultarPre($_GET['id']);
             <label for="0">Desactivado</label>
             <br>
             <br>
-            <img height="100px" src="../img/expositor_img/<?php echo $consulta[8] ?>">
             <h3 for="image">Nueva Imagen</h3>
             <input type="file" class="form-img" id="imagen" name="imagen" multiple>
             <br>
-            <br>             
+            <br>
+            <img class="img_mod"  src="../img/expositor_img/<?php echo $consulta[8] ?>">
+            <br>
+            <br>
             <input type="submit" name="registrar_conf_p"  value="Modificar">
 
           </form>
