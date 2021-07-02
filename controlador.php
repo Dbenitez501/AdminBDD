@@ -11,8 +11,10 @@ if(isset($_SESSION['user']))
     //"Hay sesión existente";
     $user->setUser($userSession->getCurrentUser());
     $tipo = $user->getTipo();
-    if($tipo == "Admin") {
+    if($tipo == "Administrador") {
         include_once 'menu_admin.php';
+    } elseif($tipo == "Auxiliar"){
+        include_once 'menu_auxiliar.php';
     } else {
         include_once 'index.php';
     }    
@@ -30,8 +32,10 @@ if(isset($_SESSION['user']))
         $user->setUser($userForm);
         $tipo = $user->getTipo();
 
-        if($tipo == "Admin") {
+        if($tipo == "Administrador") {
             include_once 'menu_admin.php';
+        } elseif($tipo == "Auxiliar"){
+            include_once 'menu_auxiliar.php';
         } else {
             include_once 'index.php';
         }

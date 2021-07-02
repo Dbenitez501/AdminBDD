@@ -59,27 +59,19 @@
               <br>
               <h3>Bienvenido/a: <?php
                 if(isset($_SESSION['user'])) {
-                  echo $user->getNombre();
-                  echo "<br>";
-                  echo $user->getTipo();
-                } else {
-                  echo "";
-                }
+                    echo $user->getNombre();
+                    echo "<br>";
+                    echo $user->getTipo();
+                  } else {
+                    echo "";
+                  }
               ?>
               </h3>
               <br>
               <hr>
-              <br>
-              <i class="far fa-plus-square icon"></i><a class="link" href="vistas/menu_tipo.php">Conferencias</a>
-              <br>
-              <br>
-              <i class="fas fa-map-marker-alt icon"></i><a class="link" href="vistas/admin_lugares.php">Lugares de exposición</a>
-              <br>
-              <br>
+              <br>              
               <i class="far fa-clipboard icon"></i><a class="link" href="vistas/menu_filtrado.php">Reportes</a>
               <br>
-              <br>
-              <i class="fas fa-plus icon"></i><a class="link" href="vistas/administradores.php">Administradores</a>
               <br>
               
             </section>
@@ -130,4 +122,3 @@
     </main>
   </body>
 </html>
-

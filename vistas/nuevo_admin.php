@@ -49,6 +49,7 @@
           <form action="../include/registrarAdmin.php" target="" method="POST" name="formAdmin" onsubmit="return validar();">
           <?php
           $sexo = "";
+          $tipo = "";
           ?>
 
             <section id="Inicio_sesion">
@@ -78,6 +79,15 @@
             <br>
             <h3 for="contra">Contraseña</h3>
             <input type ="password" name="contra" id="contra" placeholder="*****" required>
+            <br>
+
+            <h3 for="tipo">Tipo</h3>
+            <input type="radio" name="tipo" value=1 id="tipo" <?php if($tipo === 1) echo "checked"; ?>>
+            <label for="1">Administrador</label>		
+            <input type="radio" name="tipo" value=5 id="tipo" <?php if($tipo === 5) echo "checked"; ?>>
+            <label for="5">Auxiliar</label>
+            <br>
+            <br>
 
             <input type="submit" name="enviar_admin"  value="Registrar">
 

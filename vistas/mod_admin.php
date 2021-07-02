@@ -86,6 +86,15 @@ $consulta = $cons->consultarAdmin($_GET['id']);
             <br>
             <h3 for="contra">Contraseña</h3>
             <input type ="password" name="contra" id="contra" value="<?php echo $consulta[1];?>" placeholder="*****" required>
+            <br>
+
+            <h3 for="tipo">Tipo</h3>
+            <input type="radio" name="tipo" value=1 id="tipo" <?php if($consulta[6] === 1) echo "checked"; ?>>
+            <label for="1">Administrador</label>		
+            <input type="radio" name="tipo" value=5 id="tipo" <?php if($consulta[6] === 5) echo "checked"; ?>>
+            <label for="5">Auxiliar</label>
+            <br>
+            <br>
 
             <input type="submit" name="enviar_admin"  value="Modificar">
 

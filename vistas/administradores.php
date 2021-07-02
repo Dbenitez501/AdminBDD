@@ -5,7 +5,7 @@ $db = new DB();
 //PARA ELIMINAR REGISTRO
 if(isset($_GET['del'])) {
   $id_del = $_GET['del'];
-  $queryDel = $db->connect()->prepare("DELETE FROM usuarios WHERE id_usuario = :id_del AND id_tipo=1");
+  $queryDel = $db->connect()->prepare("DELETE FROM usuarios WHERE id_usuario = :id_del AND (id_tipo=1 OR id_tipo=5)");
   $queryDel->execute(['id_del'=>$id_del]);
   header("location: administradores.php");
 }
@@ -68,10 +68,12 @@ if(isset($_GET['del'])) {
             <th>Email</th>
             <th>Teléfono</th>
             <th>Sexo</th>
+            <th>Tipo</th>
             <th><a href="nuevo_admin.php"><input type="submit" value="Nuevo" class="boton_nuevo"></a></th>
           </tr>
           <?php
           $sexo="";
+          $tipo="";
           $query = $db->connect()->prepare("SELECT * FROM usuarios WHERE id_tipo=1 OR id_tipo=5");
           $query->execute();
 
@@ -83,13 +85,25 @@ if(isset($_GET['del'])) {
               } else {
                 $sexo="Femenino";
               }
+
+              if($data['id_tipo'] === 1) {
+                $tipo = 'Administrador';
+              } else {
+                $tipo = 'Auxiliar';
+              }
           ?>
           <tr>        
             <td><?php echo $id;?></td> 
             <td><?php echo $data['nombre'];?></td>
             <td><?php echo $data['correo'];?></td>
-            <td><?php echo $data['telefono'];?></td> 
-            <td><?php echo $sexo;?></td>         
+            <td><?php if($data['telefono'] === 0) {
+              echo 'N/A';
+            } else {
+              echo $data['telefono'];
+            }?>
+            </td>
+            <td><?php echo $sexo;?></td>
+            <td><?php echo $tipo?></td>         
             <td align="center"><a href="mod_admin.php?id=<?php echo $id?>"><input type="submit" value="Modificar" class="boton_mod"></a><a href='#' onclick="preguntar(<?php echo $id?>)"><input type="submit" value="Eliminar" id="btnEliminar" class="boton_elim"></a></td>
           </tr>
           <?php
