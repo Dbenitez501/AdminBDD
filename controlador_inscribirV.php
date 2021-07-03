@@ -64,6 +64,10 @@ if(!isset($_SESSION['user']))
     }
 
 
+    $procedure = $db->connect()->prepare('CALL conteo_capacidad_virtual(?)');
+    $procedure->bindParam(1, $idConf, PDO::PARAM_INT);
+    $procedure->execute();
+
     $query = $db->connect()->prepare($insertar);
     $query->execute();
 

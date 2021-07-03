@@ -72,8 +72,9 @@ if(isset($_GET['del'])) {
             <th>Fecha</th>
             <th>Hora</th>
             <th>Plataforma</th>
-            <th>Código Plataforma</th>
-            <th>Asistencia</th>
+            <th>Código <br> Plataforma</th>
+            <th>Capacidad <br> Máxima</th>
+            <th>Código de <br> Asistencia</th>
             <th>Estado</th>
             <th><a href="nueva_conf_v.php"><input type="submit" value="Nuevo" class="boton_nuevo"></a></th>
           </tr>
@@ -94,6 +95,7 @@ if(isset($_GET['del'])) {
               <td><?php echo $data['hora_inicio'];?></td>
               <td><?php echo $data['plataforma'];?></td>
               <td><?php echo $data['codigo_plat'];?></td>
+              <td><?php echo $data['cap_max'];?></td>
               <td><?php echo $data['codigo_asistencia'];?></td>
               <td><?php echo $virtual->getEstado($data['estado']);?></td>        
               <td align="center"><a href="mod_conf_v.php?id=<?php echo $id?>"><input type="submit" value="Modificar" class="boton_mod"></a><a href='#' onclick="preguntar(<?php echo $id?>)"><input type="submit" value="Eliminar" id="btnEliminar" class="boton_elim"></a></td>        

@@ -65,7 +65,7 @@ if(isset($_GET['del'])) {
             <th>#</th>
             <th class="titulo">Nombre</th>
             <th class="desc">Ubicación</th>
-            <th>Capacidad</th>
+            <th>Capacidad <br> Máxima</th>
             <th>Descripción</th>
             <th><a href="lugares_nuevo.php"><input type="submit" value="Nuevo" class="boton_nuevo"></a></th>
           </tr>

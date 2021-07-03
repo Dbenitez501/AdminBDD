@@ -16,6 +16,33 @@ if(isset($_SESSION['user'])) {
   $user->setUser($userSession->getCurrentUser());
   $idUser = $user->getIdUsu();
 }
+
+
+
+//PARA ELIMINAR REGISTRO
+if(isset($_GET['delV'])) {
+  $id_del = $_GET['delV'];
+
+  $procedure = $db->connect()->prepare('CALL restar_capacidad_virtual(?)');
+  $procedure->bindParam(1, $id_del, PDO::PARAM_INT);
+  $procedure->execute();
+
+  $queryDel = $db->connect()->prepare("DELETE FROM registros WHERE id_registro = :id_del");
+  $queryDel->execute(['id_del'=>$id_del]);
+  header("location: tabla_asistencias.php");
+}
+
+if(isset($_GET['delP'])) {
+  $id_del = $_GET['delP'];
+
+  $procedure = $db->connect()->prepare('CALL restar_capacidad_presencial(?)');
+  $procedure->bindParam(1, $id_del, PDO::PARAM_INT);
+  $procedure->execute();
+
+  $queryDel = $db->connect()->prepare("DELETE FROM registros WHERE id_registro = :id_del");
+  $queryDel->execute(['id_del'=>$id_del]);
+  header("location: tabla_asistencias.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -108,7 +135,7 @@ if(isset($_SESSION['user'])) {
             <td><?php echo $dataP['fecha_inicio'];?></td>
             <td><?php echo $dataP['hora_inicio'];?></td>
             <td><?php echo $dataP['nombre'] . ", " . $dataP['ubicacion'];?></td>             
-            <td align="center"><a href="asistencia.php?idRegP=<?php echo $idRegP?>"><input type="submit" value="Asistencia" class="boton_mod"></a></td>
+            <td align="center"><a href="asistencia.php?idRegP=<?php echo $idRegP?>"><input type="submit" value="Asistencia" class="boton_mod"></a><a href='#' onclick="preguntarP(<?php echo $idRegP?>)"><input type="submit" value="Eliminar" id="btnEliminar" class="boton_elim"></a></td>
           </tr>
           <?php
             }
@@ -152,7 +179,7 @@ if(isset($_SESSION['user'])) {
             <td><?php echo $dataV['hora_inicio'];?></td>
             <td><?php echo $dataV['plataforma'];?></td>
             <td><?php echo $dataV['codigo_plat'];?></td>                
-            <td align="center"><a href="asistencia.php?idRegV=<?php echo $idRegV?>"><input type="submit" value="Asistencia" class="boton_mod"></a></td>
+            <td align="center"><a href="asistencia.php?idRegV=<?php echo $idRegV?>"><input type="submit" value="Asistencia" class="boton_mod"></a><a href='#' onclick="preguntarV(<?php echo $idRegV?>)"><input type="submit" value="Eliminar" id="btnEliminar" class="boton_elim"></a></td>
           </tr>
           <?php
             }
@@ -201,5 +228,18 @@ if(isset($_SESSION['user'])) {
 </footer>
 
     </main>
+    <script type="text/javascript">
+      function preguntarP(id) {
+        if(confirm('¿Seguro que quieres eliminar?')) {
+          window.location.href = "tabla_asistencias.php?delP="+id;
+        }
+      }
+
+      function preguntarV(id) {
+        if(confirm('¿Seguro que quieres eliminar?')) {
+          window.location.href = "tabla_asistencias.php?delV="+id;
+        }
+      }
+    </script>
   </body>
 </html>
